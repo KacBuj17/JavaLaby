@@ -17,10 +17,8 @@ public class FileAndURLCopy {
         String source = args[0];
         String target = args.length > 1 ? args[1] : null;
 
-        if (isValidURL(source)) {
+        if (isValidURL(source)){
             copyFromURL(source, target);
-        } else {
-            copyFromFile(source, target);
         }
     }
 
@@ -76,53 +74,6 @@ public class FileAndURLCopy {
             if (connection != null) {
                 connection.disconnect();
             }
-        }
-    }
-
-    private static void copyFromFile(String sourcePath, String targetPath) {
-        File sourceFile = new File(sourcePath);
-        File targetFile = new File(targetPath == null ? sourceFile.getName() : targetPath);
-
-        if (!sourceFile.exists()) {
-            System.out.println("Plik " + sourceFile.getName() + " nie istnieje.");
-            return;
-        }
-
-        if (sourceFile.isDirectory()) {
-            System.out.println(sourceFile.getName() + " jest katalogiem.");
-            return;
-        }
-
-        if (!sourceFile.canRead()) {
-            System.out.println("Brak dostępu do pliku " + sourceFile.getName());
-            return;
-        }
-
-        if (targetFile.exists()) {
-            if (targetFile.isDirectory()) {
-                targetFile = new File(targetFile, sourceFile.getName());
-            } else if (!targetFile.canWrite()) {
-                System.out.println("Nie można nadpisać pliku " + targetFile.getName());
-                return;
-            }
-        } else {
-            File parentDir = targetFile.getParentFile();
-            if (parentDir != null && (!parentDir.exists() || !parentDir.canWrite())) {
-                System.out.println("Brak wymaganych uprawnień do katalogu " + parentDir);
-                return;
-            }
-        }
-
-        try (FileInputStream fis = new FileInputStream(sourceFile);
-             FileOutputStream fos = new FileOutputStream(targetFile)) {
-            byte[] buffer = new byte[1024];
-            int bytesRead;
-            while ((bytesRead = fis.read(buffer)) != -1) {
-                fos.write(buffer, 0, bytesRead);
-            }
-            System.out.println("Plik " + sourceFile.getName() + " skopiowany do " + targetFile.getPath());
-        } catch (IOException e) {
-            System.out.println("Wystąpił błąd podczas kopiowania pliku: " + e.getMessage());
         }
     }
 }

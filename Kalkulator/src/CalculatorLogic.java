@@ -60,24 +60,20 @@ public class CalculatorLogic {
     }
 
     private static void handleEquals(JTextField resultField) {
-        if (operator.isEmpty()) {
-            lastActionEquals = true;
-        } else {
-            if (lastActionEquals) {
-                operand1 = calculate(operand1, operand2, operator);
-            } else {
+        if (!operator.isEmpty()) {
+            if (!lastActionEquals) {
                 if (isResultDisplayed) {
                     operand2 = operand1;
                 } else {
                     operand2 = Integer.parseInt(resultField.getText());
                 }
-                operand1 = calculate(operand1, operand2, operator);
             }
+            operand1 = calculate(operand1, operand2, operator);
             resultField.setForeground(Color.BLACK);
             resultField.setText(String.valueOf(operand1));
             isResultDisplayed = true;
-            lastActionEquals = true;
         }
+        lastActionEquals = true;
     }
 
     private static int calculate(int num1, int num2, String op) throws ArithmeticException {

@@ -25,7 +25,6 @@ public class FileAndURLCopy {
     }
 
     private static boolean isValidURL(String url) {
-        // Wzorzec sprawdzający poprawność adresu URL
         String urlPattern = "^(http|https)://.*$";
         return Pattern.matches(urlPattern, url);
     }
@@ -33,12 +32,11 @@ public class FileAndURLCopy {
     private static void copyFromURL(String sourceURL, String target) {
         HttpURLConnection connection = null;
 
-        try {
-            // Sprawdzenie poprawności URL
+        try{
             URL url = new URL(sourceURL);
             connection = (HttpURLConnection) url.openConnection();
-            connection.setConnectTimeout(5000); // Timeout połączenia
-            connection.setReadTimeout(5000);    // Timeout odczytu
+            connection.setConnectTimeout(5000);
+            connection.setReadTimeout(5000);
             connection.setRequestMethod("GET");
 
             int responseCode = connection.getResponseCode();
@@ -49,15 +47,13 @@ public class FileAndURLCopy {
 
             String fileName = target;
             if (fileName == null) {
-                // Automatyczne wyznaczenie nazwy pliku z URL
                 String[] urlParts = sourceURL.split("/");
                 fileName = urlParts[urlParts.length - 1];
                 if (fileName.isEmpty()) {
-                    fileName = "default.html"; // Domyślna nazwa pliku
+                    fileName = "default.html";
                 }
             }
 
-            // Zapisywanie pliku
             try (InputStream inputStream = connection.getInputStream();
                  FileOutputStream outputStream = new FileOutputStream(fileName)) {
 

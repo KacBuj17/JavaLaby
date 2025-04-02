@@ -2,8 +2,7 @@ import java.util.Scanner;
 
 public class DrawTriangle {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        try {
+        try (Scanner scanner = new Scanner(System.in)) {
             System.out.print("Enter the height of the triangle: ");
             int height = scanner.nextInt();
 
@@ -23,8 +22,6 @@ public class DrawTriangle {
             }
         } catch (Exception e) {
             System.out.println("Invalid input! Please enter a valid integer.");
-        } finally {
-            scanner.close();
         }
     }
 }

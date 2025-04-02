@@ -2,8 +2,7 @@ import java.util.Scanner;
 
 public class DrawSquare {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        try {
+        try (Scanner scanner = new Scanner(System.in)) {
             System.out.print("Enter the size of the square: ");
             int size = scanner.nextInt();
 
@@ -24,8 +23,6 @@ public class DrawSquare {
             }
         } catch (Exception e) {
             System.out.println("Invalid input! Please enter a valid integer.");
-        } finally {
-            scanner.close();
         }
     }
 }

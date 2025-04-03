@@ -49,6 +49,8 @@ public class MultiplicationTable {
         int correctAnswers = 0;
         int totalQuestions = 0;
 
+        long startTime = System.currentTimeMillis();
+
         while (totalQuestions < maximumRepetitions) {
             int factor1 = random.nextInt(maximumValue - minimumValue + 1) + minimumValue;
             int factor2 = random.nextInt(maximumValue - minimumValue + 1) + minimumValue;
@@ -76,6 +78,10 @@ public class MultiplicationTable {
             }
         }
 
+        long endTime = System.currentTimeMillis();
+        long duration = endTime - startTime;
+        long seconds = duration / 1000;
+
         double finalSuccessRate = (correctAnswers / (double) totalQuestions) * 100;
         System.out.println("Quiz finished!");
         System.out.println("Correct answers: " + correctAnswers + " out of " + totalQuestions);
@@ -86,5 +92,7 @@ public class MultiplicationTable {
         } else {
             System.out.println("You did not pass the quiz. Better luck next time!");
         }
+
+        System.out.println("Time taken: " + seconds + " seconds.");
     }
 }

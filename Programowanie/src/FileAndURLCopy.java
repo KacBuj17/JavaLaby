@@ -15,7 +15,7 @@ public class FileAndURLCopy {
         }
 
         String source = args[0];
-        String target = args.length > 1 ? args[1] : null;
+        String target = args.length > 1 ? args[1] : "default.html";
 
         if (isValidURL(source)){
             copyFromURL(source, target);
@@ -43,24 +43,15 @@ public class FileAndURLCopy {
                 return;
             }
 
-            String fileName = target;
-            if (fileName == null) {
-                String[] urlParts = sourceURL.split("/");
-                fileName = urlParts[urlParts.length - 1];
-                if (fileName.isEmpty()) {
-                    fileName = "default.html";
-                }
-            }
-
             try (InputStream inputStream = connection.getInputStream();
-                 FileOutputStream outputStream = new FileOutputStream(fileName)) {
+                 FileOutputStream outputStream = new FileOutputStream(target)) {
 
                 byte[] buffer = new byte[1024];
                 int bytesRead;
                 while ((bytesRead = inputStream.read(buffer)) != -1) {
                     outputStream.write(buffer, 0, bytesRead);
                 }
-                System.out.println("Plik pobrany i zapisany jako: " + fileName);
+                System.out.println("Plik pobrany i zapisany jako: " + target);
             }
         } catch (MalformedURLException e) {
             System.out.println("Podany adres: '" + sourceURL + "' jest nieprawidłowy.");

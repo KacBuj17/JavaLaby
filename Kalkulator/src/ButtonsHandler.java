@@ -13,7 +13,7 @@ public class ButtonsHandler {
 
         for (String text : buttons) {
             JButton button = new JButton(text);
-            button.setFont(new Font("Arial", Font.PLAIN, 18));
+            button.setFont(new Font("Consolas", Font.PLAIN, 18));
             button.addActionListener(e -> CalculatorLogic.handleButtonClick(e.getActionCommand(), resultField));
             buttonPanel.add(button);
         }

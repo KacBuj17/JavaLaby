@@ -7,37 +7,37 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class MultiplicationTable {
-    private static final int defaultMinimumValue = 1;
-    private static final int defaultMaximumValue = 10;
-    private static final int defaultMinimumRepetitions = 10;
-    private static final int defaultMaximumRepetitions = 25;
+    private static final int defaultMinValue = 1;
+    private static final int defaultMaxValue = 10;
+    private static final int defaultMinRepetitions = 10;
+    private static final int defaultMaxRepetitions = 25;
     private static final int defaultPercentage = 70;
 
     public static void main(String[] args) {
         Properties properties = new Properties();
         File propertiesFile = new File("settings.properties");
 
-        int minimumValue = defaultMinimumValue;
-        int maximumValue = defaultMaximumValue;
-        int minimumRepetitions = defaultMinimumRepetitions;
-        int maximumRepetitions = defaultMaximumRepetitions;
+        int minValue = defaultMinValue;
+        int maxValue = defaultMaxValue;
+        int minRepetitions = defaultMinRepetitions;
+        int maxRepetitions = defaultMaxRepetitions;
         int percentageThreshold = defaultPercentage;
 
         try {
             if (!propertiesFile.exists()) {
-                properties.setProperty("wartość_minimum", String.valueOf(defaultMinimumValue));
-                properties.setProperty("wartość_maximum", String.valueOf(defaultMaximumValue));
-                properties.setProperty("powtórzeń_minimum", String.valueOf(defaultMinimumRepetitions));
-                properties.setProperty("powtórzeń_maximum", String.valueOf(defaultMaximumRepetitions));
+                properties.setProperty("wartość_minimum", String.valueOf(defaultMinValue));
+                properties.setProperty("wartość_maximum", String.valueOf(defaultMaxValue));
+                properties.setProperty("powtórzeń_minimum", String.valueOf(defaultMinRepetitions));
+                properties.setProperty("powtórzeń_maximum", String.valueOf(defaultMaxRepetitions));
                 properties.setProperty("procent", String.valueOf(defaultPercentage));
                 properties.store(new FileOutputStream(propertiesFile), null);
                 System.out.println("Default settings file created.");
             } else {
                 properties.load(new FileInputStream(propertiesFile));
-                minimumValue = Integer.parseInt(properties.getProperty("wartość_minimum"));
-                maximumValue = Integer.parseInt(properties.getProperty("wartość_maximum"));
-                minimumRepetitions = Integer.parseInt(properties.getProperty("powtórzeń_minimum"));
-                maximumRepetitions = Integer.parseInt(properties.getProperty("powtórzeń_maximum"));
+                minValue = Integer.parseInt(properties.getProperty("wartość_minimum"));
+                maxValue = Integer.parseInt(properties.getProperty("wartość_maximum"));
+                minRepetitions = Integer.parseInt(properties.getProperty("powtórzeń_minimum"));
+                maxRepetitions = Integer.parseInt(properties.getProperty("powtórzeń_maximum"));
                 percentageThreshold = Integer.parseInt(properties.getProperty("procent"));
             }
         } catch (IOException e) {
@@ -51,9 +51,9 @@ public class MultiplicationTable {
 
         long startTime = System.currentTimeMillis();
 
-        while (totalQuestions < maximumRepetitions) {
-            int factor1 = random.nextInt(maximumValue - minimumValue + 1) + minimumValue;
-            int factor2 = random.nextInt(maximumValue - minimumValue + 1) + minimumValue;
+        while (totalQuestions < maxRepetitions) {
+            int factor1 = random.nextInt(maxValue - minValue + 1) + minValue;
+            int factor2 = random.nextInt(maxValue - minValue + 1) + minValue;
             System.out.print(factor1 + " * " + factor2 + " = ");
 
             try {
@@ -70,7 +70,7 @@ public class MultiplicationTable {
             }
 
             totalQuestions++;
-            if (totalQuestions >= minimumRepetitions) {
+            if (totalQuestions >= minRepetitions) {
                 double successRate = (correctAnswers / (double) totalQuestions) * 100;
                 if (successRate >= percentageThreshold) {
                     break;

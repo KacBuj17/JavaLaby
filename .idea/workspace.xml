@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c95873c-1d5c-4624-b68d-ac3ceb86c4e0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="2c95873c-1d5c-4624-b68d-ac3ceb86c4e0" name="Changes" comment="Update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kalkulator/src/ButtonsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Kalkulator/src/ButtonsHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kalkulator/src/CalculatorGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Kalkulator/src/CalculatorGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kalkulator/src/CalculatorLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Kalkulator/src/CalculatorLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Programowanie/src/MultiplicationTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/Programowanie/src/MultiplicationTable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,26 +23,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ArithmeticMean.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.MultiplicationTable.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ArithmeticMean.executor&quot;: &quot;Run&quot;,
+    &quot;Application.FileCopy.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LineCounterPane.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MultiplicationTable.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.MultiplicationTable">
     <configuration name="ArithmeticMean" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ArithmeticMean" />
+      <module name="Programowanie" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileCopy" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FileCopy" />
+      <module name="Programowanie" />
+      <option name="PROGRAM_PARAMETERS" value="data text.txt" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LineCounterPane" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LineCounterPane" />
       <module name="Programowanie" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -67,9 +79,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.ArithmeticMean" />
+      <item itemvalue="Application.FileCopy" />
+      <item itemvalue="Application.LineCounterPane" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.MultiplicationTable" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MultiplicationTable" />
+        <item itemvalue="Application.FileCopy" />
+        <item itemvalue="Application.LineCounterPane" />
         <item itemvalue="Application.ArithmeticMean" />
         <item itemvalue="Application.Main" />
       </list>
@@ -92,8 +113,22 @@
       <option name="presentableId" value="Default" />
       <updated>1743755014395</updated>
       <workItem from="1743755015538" duration="62000" />
-      <workItem from="1743755084257" duration="1710000" />
+      <workItem from="1743755084257" duration="2500000" />
+      <workItem from="1743760188967" duration="1447000" />
+      <workItem from="1743761911987" duration="595000" />
+      <workItem from="1743770973008" duration="549000" />
+      <workItem from="1743775125728" duration="2423000" />
+      <workItem from="1744057673015" duration="29000" />
     </task>
+    <task id="LOCAL-00001" summary="Update">
+      <option name="closed" value="true" />
+      <created>1743756908599</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1743756908599</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,5 +144,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
 </project>

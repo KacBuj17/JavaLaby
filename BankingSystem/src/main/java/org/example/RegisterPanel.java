@@ -12,13 +12,11 @@ class RegisterPanel extends JFrame {
         setLayout(new BorderLayout(15, 15));
         getContentPane().setBackground(Color.WHITE);
 
-        // Tytuł
         JLabel title = new JLabel("Rejestracja", SwingConstants.CENTER);
         title.setFont(new Font("Segoe UI", Font.BOLD, 20));
         title.setBorder(BorderFactory.createEmptyBorder(20, 0, 10, 0));
         add(title, BorderLayout.NORTH);
 
-        // Formularz
         JPanel form = new JPanel();
         form.setBackground(Color.WHITE);
         form.setLayout(new GridLayout(7, 2, 10, 10));  // Zwiększyłem liczbę wierszy
@@ -50,7 +48,6 @@ class RegisterPanel extends JFrame {
 
         add(form, BorderLayout.CENTER);
 
-        // Przycisk rejestracji i powrotu
         JPanel buttons = new JPanel();
         buttons.setBackground(Color.WHITE);
         RoundedButton registerBtn = new RoundedButton("Zarejestruj");

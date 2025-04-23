@@ -101,9 +101,8 @@ class UserPanel extends JFrame {
                             .append(description).append("\n\n");
                 }
 
-                // Tworzenie tekstu w panelu historii z przewijaniem
                 JTextArea textArea = new JTextArea(sb.toString());
-                textArea.setEditable(false); // Tylko do odczytu
+                textArea.setEditable(false);
                 JScrollPane scrollPane = new JScrollPane(textArea);
                 scrollPane.setPreferredSize(new Dimension(500, 300));
 
@@ -133,7 +132,6 @@ class UserPanel extends JFrame {
         });
 
         logoutButton.addActionListener(e -> {
-            // Wylogowywanie użytkownika
             GUI.currentUserLogin = null;
             JOptionPane.showMessageDialog(this, "Wylogowano pomyślnie.");
             dispose();

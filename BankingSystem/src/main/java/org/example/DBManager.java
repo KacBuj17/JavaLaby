@@ -15,6 +15,18 @@ public class DBManager {
         try (Connection conn = DriverManager.getConnection(DB_URL);
              Statement stmt = conn.createStatement()) {
             stmt.execute("PRAGMA busy_timeout = 3000");
+            stmt.execute("PRAGMA journal_mode = WAL");
+
+            stmt.execute("""
+                    CREATE TABLE IF NOT EXISTS admins (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        first_name TEXT NOT NULL,
+                        last_name TEXT NOT NULL,
+                        email TEXT NOT NULL,
+                        login TEXT UNIQUE NOT NULL,
+                        password TEXT NOT NULL
+                    )
+                    """);
 
             stmt.execute("""
                     CREATE TABLE IF NOT EXISTS users (
@@ -61,7 +73,6 @@ public class DBManager {
 
         try (Connection conn = DriverManager.getConnection(DB_URL);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
             conn.setAutoCommit(false);
             pstmt.setString(1, firstName);
             pstmt.setString(2, lastName);
@@ -69,28 +80,50 @@ public class DBManager {
             pstmt.setString(4, login);
             pstmt.setString(5, hashPassword(password));
             pstmt.setString(6, accountNumber);
-
             pstmt.executeUpdate();
             conn.commit();
             return true;
         } catch (SQLException e) {
-            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean registerAdmin(String firstName, String lastName, String email, String login, String password) {
+        String sql = "INSERT INTO admins(first_name, last_name, email, login, password) VALUES(?, ?, ?, ?, ?)";
+        try (Connection conn = DriverManager.getConnection(DB_URL);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, firstName);
+            pstmt.setString(2, lastName);
+            pstmt.setString(3, email);
+            pstmt.setString(4, login);
+            pstmt.setString(5, hashPassword(password));
+            pstmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
             return false;
         }
     }
 
     public static boolean validateLogin(String login, String password) {
-        String sql = "SELECT * FROM users WHERE login = ? AND password = ?";
-
+        String sql = "SELECT 1 FROM users WHERE login = ? AND password = ?";
         try (Connection conn = DriverManager.getConnection(DB_URL);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
             pstmt.setString(1, login);
             pstmt.setString(2, hashPassword(password));
-            ResultSet rs = pstmt.executeQuery();
-            return rs.next();
+            return pstmt.executeQuery().next();
         } catch (SQLException e) {
-            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean validateAdminLogin(String login, String password) {
+        String sql = "SELECT 1 FROM admins WHERE login = ? AND password = ?";
+        try (Connection conn = DriverManager.getConnection(DB_URL);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, login);
+            pstmt.setString(2, hashPassword(password));
+            return pstmt.executeQuery().next();
+        } catch (SQLException e) {
             return false;
         }
     }
@@ -105,31 +138,24 @@ public class DBManager {
     }
 
     private static boolean accountNumberExists(String number) {
-        String sql = "SELECT id FROM users WHERE account_number = ?";
-
+        String sql = "SELECT 1 FROM users WHERE account_number = ?";
         try (Connection conn = DriverManager.getConnection(DB_URL);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
             pstmt.setString(1, number);
-            ResultSet rs = pstmt.executeQuery();
-            return rs.next();
+            return pstmt.executeQuery().next();
         } catch (SQLException e) {
-            e.printStackTrace();
             return true;
         }
     }
 
     public static double getBalance(String login) {
         String sql = "SELECT balance FROM users WHERE login = ?";
-
         try (Connection conn = DriverManager.getConnection(DB_URL);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
             pstmt.setString(1, login);
             ResultSet rs = pstmt.executeQuery();
             return rs.next() ? rs.getDouble("balance") : 0;
         } catch (SQLException e) {
-            e.printStackTrace();
             return 0;
         }
     }
@@ -140,14 +166,16 @@ public class DBManager {
 
         try (Connection conn = DriverManager.getConnection(DB_URL)) {
             conn.setAutoCommit(false);
-
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setDouble(1, amount);
             pstmt.setString(2, login);
             pstmt.executeUpdate();
 
             String accountNumber = getAccountNumber(login);
-            if (accountNumber == null) return false;
+            if (accountNumber == null) {
+                conn.rollback();
+                return false;
+            }
 
             String subject = amount > 0 ? "Wpłata" : "Wypłata";
             PreparedStatement psTransfer = conn.prepareStatement(insertTransfer);
@@ -161,34 +189,35 @@ public class DBManager {
             conn.commit();
             return true;
         } catch (SQLException e) {
-            e.printStackTrace();
             return false;
         }
     }
 
-    // 🔁 Przelew
     public static boolean makeTransfer(String fromLogin, String toAccount, double amount, String subject) {
         String getSender = "SELECT account_number, balance FROM users WHERE login = ?";
-        String getReceiver = "SELECT id FROM users WHERE account_number = ?";
+        String getReceiver = "SELECT 1 FROM users WHERE account_number = ?";
         String insertTransfer = "INSERT INTO transfers(from_account, to_account, amount, subject, timestamp) VALUES(?, ?, ?, ?, ?)";
         String updateBalance = "UPDATE users SET balance = balance + ? WHERE account_number = ?";
 
         try (Connection conn = DriverManager.getConnection(DB_URL)) {
-            conn.setAutoCommit(false); // Rozpoczęcie transakcji
+            conn.setAutoCommit(false);
 
-            // dane nadawcy
             PreparedStatement psSender = conn.prepareStatement(getSender);
             psSender.setString(1, fromLogin);
             ResultSet rsSender = psSender.executeQuery();
-            if (!rsSender.next() || rsSender.getDouble("balance") < amount) return false;
+            if (!rsSender.next() || rsSender.getDouble("balance") < amount) {
+                conn.rollback();
+                return false;
+            }
             String fromAccount = rsSender.getString("account_number");
 
-            // sprawdzenie odbiorcy
             PreparedStatement psReceiver = conn.prepareStatement(getReceiver);
             psReceiver.setString(1, toAccount);
-            if (!psReceiver.executeQuery().next()) return false;
+            if (!psReceiver.executeQuery().next()) {
+                conn.rollback();
+                return false;
+            }
 
-            // aktualizacja sald
             PreparedStatement psUpdateSender = conn.prepareStatement(updateBalance);
             psUpdateSender.setDouble(1, -amount);
             psUpdateSender.setString(2, fromAccount);
@@ -199,7 +228,6 @@ public class DBManager {
             psUpdateReceiver.setString(2, toAccount);
             psUpdateReceiver.executeUpdate();
 
-            // zapis przelewu
             PreparedStatement psTransfer = conn.prepareStatement(insertTransfer);
             psTransfer.setString(1, fromAccount);
             psTransfer.setString(2, toAccount);
@@ -208,15 +236,13 @@ public class DBManager {
             psTransfer.setString(5, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
             psTransfer.executeUpdate();
 
-            conn.commit(); // Zatwierdzenie transakcji
+            conn.commit();
             return true;
         } catch (SQLException e) {
-            e.printStackTrace();
             return false;
         }
     }
 
-    // 📋 Historia przelewów
     public static ResultSet getTransfers(String accountNumber) {
         String sql = "SELECT * FROM transfers WHERE from_account = ? OR to_account = ? ORDER BY timestamp DESC";
         try {
@@ -224,14 +250,12 @@ public class DBManager {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, accountNumber);
             pstmt.setString(2, accountNumber);
-            return pstmt.executeQuery(); // ważne: zamknąć później!
+            return pstmt.executeQuery();
         } catch (SQLException e) {
-            e.printStackTrace();
             return null;
         }
     }
 
-    // 📌 Pobieranie numeru konta po loginie
     public static String getAccountNumber(String login) {
         String sql = "SELECT account_number FROM users WHERE login = ?";
         try (Connection conn = DriverManager.getConnection(DB_URL);
@@ -244,16 +268,25 @@ public class DBManager {
         }
     }
 
-    // 📄 Pobieranie danych użytkownika
     public static ResultSet getUserInfo(String login) {
         String sql = "SELECT first_name, last_name, email, login, account_number FROM users WHERE login = ?";
         try {
             Connection conn = DriverManager.getConnection(DB_URL);
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, login);
-            return pstmt.executeQuery(); // Pamiętaj, by zamknąć po użyciu!
+            return pstmt.executeQuery();
         } catch (SQLException e) {
-            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static ResultSet getAllUsers() {
+        String sql = "SELECT login, first_name, last_name, email, account_number, balance FROM users";
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL);
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            return pstmt.executeQuery();
+        } catch (SQLException e) {
             return null;
         }
     }

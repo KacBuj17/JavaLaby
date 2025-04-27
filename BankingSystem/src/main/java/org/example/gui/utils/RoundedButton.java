@@ -1,9 +1,9 @@
-package org.example;
+package org.example.gui.utils;
 
 import javax.swing.*;
 import java.awt.*;
 
-class RoundedButton extends JButton {
+public class RoundedButton extends JButton {
     public RoundedButton(String text) {
         super(text);
         setFocusPainted(false);

@@ -1,9 +1,20 @@
-package org.example;
+package org.example.gui;
+
+import org.example.db.DBManager;
+import org.example.gui.handlers.RegisterPanelHandler;
+import org.example.gui.utils.RoundedButton;
 
 import javax.swing.*;
 import java.awt.*;
 
-class RegisterPanel extends JFrame {
+public class RegisterPanel extends JFrame {
+    private JTextField nameField;
+    private JTextField surnameField;
+    private JTextField emailField;
+    private JTextField loginField;
+    private JPasswordField passwordField;
+    private JPasswordField confirmPasswordField;
+
     public RegisterPanel() {
         setTitle("Rejestracja");
         setSize(420, 450);  // Zwiększyłem rozmiar okna
@@ -19,31 +30,31 @@ class RegisterPanel extends JFrame {
 
         JPanel form = new JPanel();
         form.setBackground(Color.WHITE);
-        form.setLayout(new GridLayout(7, 2, 10, 10));  // Zwiększyłem liczbę wierszy
+        form.setLayout(new GridLayout(7, 2, 10, 10));
         form.setBorder(BorderFactory.createEmptyBorder(10, 40, 10, 40));
 
         form.add(new JLabel("Imię:"));
-        JTextField nameField = new JTextField();
+        nameField = new JTextField();
         form.add(nameField);
 
         form.add(new JLabel("Nazwisko:"));
-        JTextField surnameField = new JTextField();
+        surnameField = new JTextField();
         form.add(surnameField);
 
         form.add(new JLabel("Email:"));
-        JTextField emailField = new JTextField();
+        emailField = new JTextField();
         form.add(emailField);
 
         form.add(new JLabel("Login:"));
-        JTextField loginField = new JTextField();
+        loginField = new JTextField();
         form.add(loginField);
 
         form.add(new JLabel("Hasło:"));
-        JPasswordField passwordField = new JPasswordField();
+        passwordField = new JPasswordField();
         form.add(passwordField);
 
         form.add(new JLabel("Potwierdź hasło:"));
-        JPasswordField confirmPasswordField = new JPasswordField();
+        confirmPasswordField = new JPasswordField();
         form.add(confirmPasswordField);
 
         add(form, BorderLayout.CENTER);
@@ -53,26 +64,8 @@ class RegisterPanel extends JFrame {
         RoundedButton registerBtn = new RoundedButton("Zarejestruj");
         RoundedButton backBtn = new RoundedButton("Powrót");
 
-        registerBtn.addActionListener(e -> {
-            String name = nameField.getText();
-            String surname = surnameField.getText();
-            String email = emailField.getText();
-            String login = loginField.getText();
-            String password = new String(passwordField.getPassword());
-            String confirmPassword = new String(confirmPasswordField.getPassword());
-
-            if (password.equals(confirmPassword)) {
-                if (DBManager.registerUser(name, surname, email, login, password)) {
-                    JOptionPane.showMessageDialog(this, "Rejestracja zakończona sukcesem!");
-                    dispose();
-                    new LoginPanel();
-                } else {
-                    JOptionPane.showMessageDialog(this, "Błąd rejestracji.");
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "Hasła się nie zgadzają.");
-            }
-        });
+        registerBtn.addActionListener(e -> RegisterPanelHandler.handleRegisterButton(
+                nameField, surnameField, emailField, loginField, passwordField, confirmPasswordField, this));
 
         backBtn.addActionListener(e -> {
             dispose();

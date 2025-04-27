@@ -1,9 +1,12 @@
-package org.example;
+package org.example.gui;
+
+import org.example.gui.handlers.WelcomeScreenHandler;
+import org.example.gui.utils.RoundedButton;
 
 import javax.swing.*;
 import java.awt.*;
 
-class WelcomeScreen extends JFrame {
+public class WelcomeScreen extends JFrame {
     public WelcomeScreen() {
         setTitle("Bank Centralny");
         setSize(500, 500);
@@ -19,39 +22,22 @@ class WelcomeScreen extends JFrame {
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(Color.WHITE);
-        buttonPanel.setLayout(new GridLayout(4, 1, 10, 20)); // Zmienione na 4 wiersze
+        buttonPanel.setLayout(new GridLayout(4, 1, 10, 20));
 
         RoundedButton loginButton = new RoundedButton("Zaloguj się");
         RoundedButton registerButton = new RoundedButton("Zarejestruj się");
         RoundedButton adminLoginButton = new RoundedButton("Zaloguj się jako administrator");
-        RoundedButton exitButton = new RoundedButton("Zamknij program"); // Nowy przycisk
+        RoundedButton exitButton = new RoundedButton("Zamknij program");
 
-        loginButton.addActionListener(e -> {
-            dispose();
-            new LoginPanel();
-        });
-
-        registerButton.addActionListener(e -> {
-            dispose();
-            new RegisterPanel();
-        });
-
-        adminLoginButton.addActionListener(e -> {
-            dispose();
-            new AdminLoginPanel();
-        });
-
-        exitButton.addActionListener(e -> {
-            int confirm = JOptionPane.showConfirmDialog(this, "Czy na pewno chcesz zamknąć program?", "Potwierdzenie", JOptionPane.YES_NO_OPTION);
-            if (confirm == JOptionPane.YES_OPTION) {
-                System.exit(0);
-            }
-        });
+        loginButton.addActionListener(e -> WelcomeScreenHandler.handleLoginButton(this));
+        registerButton.addActionListener(e -> WelcomeScreenHandler.handleRegisterButton(this));
+        adminLoginButton.addActionListener(e -> WelcomeScreenHandler.handleAdminLoginButton(this));
+        exitButton.addActionListener(e -> WelcomeScreenHandler.handleExitButton(this));
 
         buttonPanel.add(loginButton);
         buttonPanel.add(registerButton);
         buttonPanel.add(adminLoginButton);
-        buttonPanel.add(exitButton); // Dodanie przycisku
+        buttonPanel.add(exitButton);
 
         JPanel centerPanel = new JPanel(new GridBagLayout());
         centerPanel.setBackground(Color.WHITE);

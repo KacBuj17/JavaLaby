@@ -1,9 +1,17 @@
-package org.example;
+package org.example.gui;
+
+import org.example.gui.utils.RoundedButton;
+import org.example.gui.handlers.AdminLoginPanelHandler;
 
 import javax.swing.*;
 import java.awt.*;
 
-class AdminLoginPanel extends JFrame {
+public class AdminLoginPanel extends JFrame {
+    private JTextField loginField;
+    private JPasswordField passwordField;
+    private RoundedButton loginBtn;
+    private RoundedButton backBtn;
+
     public AdminLoginPanel() {
         setTitle("Logowanie jako Administrator");
         setSize(400, 300);
@@ -22,40 +30,42 @@ class AdminLoginPanel extends JFrame {
         form.setBorder(BorderFactory.createEmptyBorder(10, 40, 10, 40));
 
         form.add(new JLabel("Login:"));
-        JTextField loginField = new JTextField();
+        loginField = new JTextField();
         form.add(loginField);
 
         form.add(new JLabel("Hasło:"));
-        JPasswordField passwordField = new JPasswordField();
+        passwordField = new JPasswordField();
         form.add(passwordField);
         add(form, BorderLayout.CENTER);
 
         JPanel buttons = new JPanel();
         buttons.setBackground(Color.WHITE);
-        RoundedButton loginBtn = new RoundedButton("Zaloguj");
-        RoundedButton backBtn = new RoundedButton("Powrót");
 
-        loginBtn.addActionListener(e -> {
-            String login = loginField.getText();
-            String password = new String(passwordField.getPassword());
-            if (DBManager.validateAdminLogin(login, password)) { // Funkcja do weryfikacji admina
-                GUI.currentAdminLogin = login;
-                dispose();
-                new AdminPanel(); // Panel administratora
-            } else {
-                JOptionPane.showMessageDialog(this, "Błędny login lub hasło.");
-            }
-        });
-
-        backBtn.addActionListener(e -> {
-            dispose();
-            new WelcomeScreen();
-        });
+        loginBtn = new RoundedButton("Zaloguj");
+        backBtn = new RoundedButton("Powrót");
 
         buttons.add(loginBtn);
         buttons.add(backBtn);
         add(buttons, BorderLayout.SOUTH);
 
+        AdminLoginPanelHandler.attachHandlers(this);
+
         setVisible(true);
+    }
+
+    public JTextField getLoginField() {
+        return loginField;
+    }
+
+    public JPasswordField getPasswordField() {
+        return passwordField;
+    }
+
+    public RoundedButton getLoginBtn() {
+        return loginBtn;
+    }
+
+    public RoundedButton getBackBtn() {
+        return backBtn;
     }
 }

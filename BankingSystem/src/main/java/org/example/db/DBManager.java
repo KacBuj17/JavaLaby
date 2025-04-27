@@ -1,4 +1,4 @@
-package org.example;
+package org.example.db;
 
 import java.security.MessageDigest;
 import java.security.SecureRandom;

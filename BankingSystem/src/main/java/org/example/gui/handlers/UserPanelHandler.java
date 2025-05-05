@@ -3,11 +3,16 @@ package org.example.gui.handlers;
 import org.example.db.DBManager;
 import org.example.gui.*;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.swing.*;
 import java.awt.*;
 import java.sql.ResultSet;
 
 public class UserPanelHandler {
+
+    private static final Logger logger = LoggerFactory.getLogger(UserPanelHandler.class);
 
     public static void attachHandlers(UserPanel panel) {
         panel.getDepositButton().addActionListener(e -> handleDeposit(panel));
@@ -21,25 +26,38 @@ public class UserPanelHandler {
     private static void handleDeposit(UserPanel panel) {
         String amountStr = JOptionPane.showInputDialog(panel, "Wpisz kwotę do wpłaty:");
         if (amountStr != null) {
-            double amount = Double.parseDouble(amountStr);
-            DBManager.updateBalance(GUI.currentUserLogin, amount);
-            JOptionPane.showMessageDialog(panel, "Wpłata zakończona sukcesem!");
-            panel.dispose();
-            new UserPanel();
+            try {
+                double amount = Double.parseDouble(amountStr);
+                DBManager.updateBalance(GUI.currentUserLogin, amount);
+                logger.debug("Wpłata {:.2f} PLN zakończona sukcesem przez użytkownika: {}", amount, GUI.currentUserLogin);
+                JOptionPane.showMessageDialog(panel, "Wpłata zakończona sukcesem!");
+                panel.dispose();
+                new UserPanel();
+            } catch (NumberFormatException e) {
+                logger.error("Nieprawidłowy format liczby podczas wpłaty: {}", amountStr, e);
+                JOptionPane.showMessageDialog(panel, "Nieprawidłowy format kwoty.");
+            }
         }
     }
 
     private static void handleWithdraw(UserPanel panel) {
         String amountStr = JOptionPane.showInputDialog(panel, "Wpisz kwotę do wypłaty:");
         if (amountStr != null) {
-            double amount = Double.parseDouble(amountStr);
-            if (DBManager.getBalance(GUI.currentUserLogin) >= amount) {
-                DBManager.updateBalance(GUI.currentUserLogin, -amount);
-                JOptionPane.showMessageDialog(panel, "Wypłata zakończona sukcesem!");
-                panel.dispose();
-                new UserPanel();
-            } else {
-                JOptionPane.showMessageDialog(panel, "Niewystarczająca ilość środków!");
+            try {
+                double amount = Double.parseDouble(amountStr);
+                if (DBManager.getBalance(GUI.currentUserLogin) >= amount) {
+                    DBManager.updateBalance(GUI.currentUserLogin, -amount);
+                    logger.debug("Wypłata {:.2f} PLN zakończona sukcesem przez użytkownika: {}", amount, GUI.currentUserLogin);
+                    JOptionPane.showMessageDialog(panel, "Wypłata zakończona sukcesem!");
+                    panel.dispose();
+                    new UserPanel();
+                } else {
+                    logger.error("Nieudana próba wypłaty: brak środków. Użytkownik: {}, Kwota: {}", GUI.currentUserLogin, amount);
+                    JOptionPane.showMessageDialog(panel, "Niewystarczająca ilość środków!");
+                }
+            } catch (NumberFormatException e) {
+                logger.error("Nieprawidłowy format liczby podczas wypłaty: {}", amountStr, e);
+                JOptionPane.showMessageDialog(panel, "Nieprawidłowy format kwoty.");
             }
         }
     }
@@ -49,13 +67,20 @@ public class UserPanelHandler {
         String amountStr = JOptionPane.showInputDialog(panel, "Wpisz kwotę do przelewu:");
         String subject = JOptionPane.showInputDialog(panel, "Wpisz tytuł przelewu:");
         if (receiverAccount != null && amountStr != null && subject != null) {
-            double amount = Double.parseDouble(amountStr);
-            if (DBManager.makeTransfer(GUI.currentUserLogin, receiverAccount, amount, subject)) {
-                JOptionPane.showMessageDialog(panel, "Przelew zakończony sukcesem!");
-                panel.dispose();
-                new UserPanel();
-            } else {
-                JOptionPane.showMessageDialog(panel, "Błąd przelewu!");
+            try {
+                double amount = Double.parseDouble(amountStr);
+                if (DBManager.makeTransfer(GUI.currentUserLogin, receiverAccount, amount, subject)) {
+                    logger.debug("Przelew {:.2f} PLN do {} zakończony sukcesem. Użytkownik: {}", amount, receiverAccount, GUI.currentUserLogin);
+                    JOptionPane.showMessageDialog(panel, "Przelew zakończony sukcesem!");
+                    panel.dispose();
+                    new UserPanel();
+                } else {
+                    logger.error("Błąd przelewu. Nadawca: {}, Odbiorca: {}, Kwota: {}", GUI.currentUserLogin, receiverAccount, amount);
+                    JOptionPane.showMessageDialog(panel, "Błąd przelewu!");
+                }
+            } catch (NumberFormatException e) {
+                logger.error("Nieprawidłowy format liczby podczas przelewu: {}", amountStr, e);
+                JOptionPane.showMessageDialog(panel, "Nieprawidłowy format kwoty.");
             }
         }
     }
@@ -89,7 +114,9 @@ public class UserPanelHandler {
             scrollPane.setPreferredSize(new Dimension(500, 300));
 
             JOptionPane.showMessageDialog(panel, scrollPane);
+            logger.debug("Pobrano historię transakcji dla użytkownika: {}", GUI.currentUserLogin);
         } catch (Exception ex) {
+            logger.error("Błąd podczas pobierania historii transakcji użytkownika: {}", GUI.currentUserLogin, ex);
             JOptionPane.showMessageDialog(panel, "Błąd podczas ładowania historii.");
         }
     }
@@ -105,15 +132,19 @@ public class UserPanelHandler {
                         .append("Login: ").append(rs.getString("login")).append("\n")
                         .append("Numer rachunku: ").append(rs.getString("account_number"));
                 JOptionPane.showMessageDialog(panel, sb.toString(), "Informacje o koncie", JOptionPane.INFORMATION_MESSAGE);
+                logger.debug("Pobrano dane użytkownika: {}", GUI.currentUserLogin);
             } else {
+                logger.error("Nie znaleziono danych użytkownika: {}", GUI.currentUserLogin);
                 JOptionPane.showMessageDialog(panel, "Nie udało się pobrać danych użytkownika.");
             }
         } catch (Exception ex) {
+            logger.error("Wystąpił wyjątek przy pobieraniu danych użytkownika: {}", GUI.currentUserLogin, ex);
             JOptionPane.showMessageDialog(panel, "Wystąpił błąd podczas pobierania informacji.");
         }
     }
 
     private static void handleLogout(UserPanel panel) {
+        logger.debug("Użytkownik wylogował się: {}", GUI.currentUserLogin);
         GUI.currentUserLogin = null;
         JOptionPane.showMessageDialog(panel, "Wylogowano pomyślnie.");
         panel.dispose();

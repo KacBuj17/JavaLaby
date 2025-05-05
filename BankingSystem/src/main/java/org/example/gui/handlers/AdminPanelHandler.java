@@ -5,6 +5,8 @@ import org.example.gui.AdminPanel;
 import org.example.gui.AdminRegisterPanel;
 import org.example.gui.WelcomeScreen;
 import org.example.gui.GUI;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -14,17 +16,22 @@ import java.sql.SQLException;
 
 public class AdminPanelHandler {
 
+    private static final Logger logger = LoggerFactory.getLogger(AdminPanelHandler.class);
+
     public static void attachHandlers(AdminPanel panel) {
+        logger.debug("Przypisywanie handlerów do przycisków panelu administratora");
         panel.getRegisterAdminButton().addActionListener(e -> handleRegisterAdmin(panel));
         panel.getViewUsersButton().addActionListener(e -> handleViewUsers(panel));
         panel.getLogoutButton().addActionListener(e -> handleLogout(panel));
     }
 
     private static void handleRegisterAdmin(AdminPanel panel) {
+        logger.debug("Kliknięto przycisk: Zarejestruj administratora");
         new AdminRegisterPanel();
     }
 
     private static void handleViewUsers(AdminPanel panel) {
+        logger.debug("Kliknięto przycisk: Wyświetl użytkowników");
         ResultSet rs = DBManager.getAllUsers();
         try {
             if (rs != null) {
@@ -48,15 +55,19 @@ public class AdminPanelHandler {
                 scrollPane.setPreferredSize(new Dimension(600, 300));
 
                 JOptionPane.showMessageDialog(panel, scrollPane, "Lista użytkowników", JOptionPane.INFORMATION_MESSAGE);
+                logger.debug("Pomyślnie załadowano i wyświetlono dane użytkowników");
             } else {
+                logger.error("ResultSet z użytkownikami jest nullem");
                 JOptionPane.showMessageDialog(panel, "Błąd podczas pobierania danych użytkowników.");
             }
         } catch (SQLException ex) {
+            logger.error("Błąd SQL podczas pobierania użytkowników: {}", ex.getMessage(), ex);
             JOptionPane.showMessageDialog(panel, "Wystąpił błąd: " + ex.getMessage());
         }
     }
 
     private static void handleLogout(AdminPanel panel) {
+        logger.debug("Kliknięto przycisk: Wyloguj");
         GUI.currentAdminLogin = null;
         JOptionPane.showMessageDialog(panel, "Wylogowano pomyślnie.");
         panel.dispose();

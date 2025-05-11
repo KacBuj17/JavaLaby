@@ -41,3 +41,111 @@
 2025-05-05 19:07:03 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Wypłata {:.2f} PLN zakończona sukcesem przez użytkownika: 123.0
 2025-05-05 19:07:07 [AWT-EventQueue-0] ERROR o.e.gui.handlers.UserPanelHandler - Błąd przelewu. Nadawca: 1234, Odbiorca: 123, Kwota: 123.0
 2025-05-05 19:07:09 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Użytkownik wylogował się: 1234
+2025-05-06 23:28:15 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-06 23:28:16 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-06 23:28:21 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 1234
+2025-05-06 23:28:21 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 1234
+2025-05-06 23:28:25 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Wpłata 3.0 PLN zakończona sukcesem przez użytkownika: 1234
+2025-05-11 19:41:05 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-11 19:41:05 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-11 19:41:06 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 1234
+2025-05-11 19:41:07 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 1234
+2025-05-11 19:41:13 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Wpłata 10.0 PLN zakończona sukcesem przez użytkownika: 1234
+2025-05-11 19:41:15 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Wypłata {:.2f} PLN zakończona sukcesem przez użytkownika: -100.0
+2025-05-11 19:41:18 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Wypłata {:.2f} PLN zakończona sukcesem przez użytkownika: -100.0
+2025-05-11 19:41:55 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-11 19:41:55 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-11 19:42:00 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 1234
+2025-05-11 19:42:00 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 1234
+2025-05-11 19:59:27 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-11 19:59:27 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-11 19:59:30 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 1234
+2025-05-11 19:59:30 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 1234
+2025-05-11 19:59:33 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Wpłata 123.0 PLN zakończona sukcesem przez użytkownika: 1234
+2025-05-11 19:59:38 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Wypłata 123.0 PLN zakończona sukcesem przez użytkownika: 1234
+2025-05-11 19:59:41 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Wypłata 123.0 PLN zakończona sukcesem przez użytkownika: 1234
+2025-05-11 19:59:43 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Wypłata 211.0 PLN zakończona sukcesem przez użytkownika: 1234
+2025-05-11 19:59:44 [AWT-EventQueue-0] ERROR o.e.gui.handlers.UserPanelHandler - Nieudana próba wypłaty: brak środków. Użytkownik: 1234, Kwota: 21.0
+2025-05-11 19:59:49 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Wypłata 2.0 PLN zakończona sukcesem przez użytkownika: 1234
+2025-05-11 19:59:52 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano historię transakcji dla użytkownika: 1234
+2025-05-11 19:59:56 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano dane użytkownika: 1234
+2025-05-11 19:59:58 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Użytkownik wylogował się: 1234
+2025-05-11 20:00:03 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania administratora.
+2025-05-11 20:00:03 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Przypisywanie akcji do przycisków panelu logowania administratora.
+2025-05-11 20:00:04 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Powrót do ekranu powitalnego z panelu logowania administratora.
+2025-05-11 20:00:05 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania administratora.
+2025-05-11 20:00:05 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Przypisywanie akcji do przycisków panelu logowania administratora.
+2025-05-11 20:00:06 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Próba logowania administratora: 123
+2025-05-11 20:00:06 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Logowanie administratora zakończone sukcesem: 123
+2025-05-11 20:00:06 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Przypisywanie handlerów do przycisków panelu administratora
+2025-05-11 20:00:07 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Kliknięto przycisk: Wyświetl użytkowników
+2025-05-11 20:00:10 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Pomyślnie załadowano i wyświetlono dane użytkowników
+2025-05-11 20:00:13 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Kliknięto przycisk: Wyświetl użytkowników
+2025-05-11 20:00:13 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Pomyślnie załadowano i wyświetlono dane użytkowników
+2025-05-11 20:00:14 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Kliknięto przycisk: Wyloguj
+2025-05-11 20:00:18 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania administratora.
+2025-05-11 20:00:18 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Przypisywanie akcji do przycisków panelu logowania administratora.
+2025-05-11 20:00:19 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Powrót do ekranu powitalnego z panelu logowania administratora.
+2025-05-11 20:00:21 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania administratora.
+2025-05-11 20:00:21 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Przypisywanie akcji do przycisków panelu logowania administratora.
+2025-05-11 20:00:23 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Próba logowania administratora: 132
+2025-05-11 20:00:23 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Nieudane logowanie administratora: 132
+2025-05-11 20:00:28 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Próba logowania administratora: 123
+2025-05-11 20:00:28 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Logowanie administratora zakończone sukcesem: 123
+2025-05-11 20:00:28 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Przypisywanie handlerów do przycisków panelu administratora
+2025-05-11 20:00:28 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Kliknięto przycisk: Wyświetl użytkowników
+2025-05-11 20:00:32 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Pomyślnie załadowano i wyświetlono dane użytkowników
+2025-05-11 20:00:33 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Kliknięto przycisk: Wyświetl użytkowników
+2025-05-11 20:00:34 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Pomyślnie załadowano i wyświetlono dane użytkowników
+2025-05-11 20:00:35 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Kliknięto przycisk: Wyświetl użytkowników
+2025-05-11 20:00:37 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Pomyślnie załadowano i wyświetlono dane użytkowników
+2025-05-11 20:00:38 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Kliknięto przycisk: Wyloguj
+2025-05-11 20:00:41 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk rejestracji.
+2025-05-11 20:00:42 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk wyjścia.
+2025-05-11 20:00:43 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Użytkownik potwierdził zamknięcie programu.
+2025-05-11 20:04:14 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-11 20:04:14 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-11 20:04:20 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-11 20:04:20 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-11 20:04:22 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Kliknięto przycisk powrotu w panelu logowania
+2025-05-11 20:04:23 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk wyjścia.
+2025-05-11 20:04:25 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Użytkownik potwierdził zamknięcie programu.
+2025-05-11 20:04:33 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-11 20:04:33 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-11 20:05:06 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-11 20:05:06 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-11 20:10:06 [AWT-EventQueue-0] ERROR o.e.gui.handlers.LoginPanelHandler - Nieudana próba logowania dla użytkownika: 1234
+2025-05-11 20:13:18 [AWT-EventQueue-0] ERROR o.e.gui.handlers.LoginPanelHandler - Nieudana próba logowania dla użytkownika: 123
+2025-05-11 20:13:43 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-11 20:13:43 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-11 20:13:49 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-11 20:13:49 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-11 20:18:31 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-11 20:18:31 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-11 20:18:36 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-11 20:18:36 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-11 20:18:38 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 1234
+2025-05-11 20:18:38 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 1234
+2025-05-11 20:18:39 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Użytkownik wylogował się: 1234
+2025-05-11 20:18:45 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-11 20:18:45 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-11 20:18:50 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 1234
+2025-05-11 20:18:51 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 1234
+2025-05-11 20:18:52 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Użytkownik wylogował się: 1234
+2025-05-11 20:18:54 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk wyjścia.
+2025-05-11 20:18:54 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Użytkownik potwierdził zamknięcie programu.
+2025-05-11 20:19:33 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-11 20:19:33 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-11 20:19:40 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-11 20:19:40 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-11 20:20:20 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-11 20:20:20 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-11 20:21:12 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-11 20:21:12 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-11 20:23:10 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-11 20:23:10 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-11 20:23:11 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 1234
+2025-05-11 20:23:12 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 1234
+2025-05-11 20:23:13 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Użytkownik wylogował się: 1234
+2025-05-11 20:23:14 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk wyjścia.
+2025-05-11 20:23:15 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Użytkownik potwierdził zamknięcie programu.

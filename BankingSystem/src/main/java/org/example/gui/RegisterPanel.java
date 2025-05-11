@@ -1,6 +1,5 @@
 package org.example.gui;
 
-import org.example.db.DBManager;
 import org.example.gui.handlers.RegisterPanelHandler;
 import org.example.gui.utils.RoundedButton;
 

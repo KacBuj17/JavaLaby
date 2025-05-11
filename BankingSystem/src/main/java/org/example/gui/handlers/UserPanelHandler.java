@@ -28,8 +28,12 @@ public class UserPanelHandler {
         if (amountStr != null) {
             try {
                 double amount = Double.parseDouble(amountStr);
+                if (amount <= 0) {
+                    JOptionPane.showMessageDialog(panel, "Kwota musi być większa niż 0.");
+                    return;
+                }
                 DBManager.updateBalance(GUI.currentUserLogin, amount);
-                logger.debug("Wpłata {:.2f} PLN zakończona sukcesem przez użytkownika: {}", amount, GUI.currentUserLogin);
+                logger.debug("Wpłata {} PLN zakończona sukcesem przez użytkownika: {}", amount, GUI.currentUserLogin);
                 JOptionPane.showMessageDialog(panel, "Wpłata zakończona sukcesem!");
                 panel.dispose();
                 new UserPanel();
@@ -40,14 +44,20 @@ public class UserPanelHandler {
         }
     }
 
+
     private static void handleWithdraw(UserPanel panel) {
         String amountStr = JOptionPane.showInputDialog(panel, "Wpisz kwotę do wypłaty:");
         if (amountStr != null) {
             try {
                 double amount = Double.parseDouble(amountStr);
-                if (DBManager.getBalance(GUI.currentUserLogin) >= amount) {
+                if (amount <= 0) {
+                    JOptionPane.showMessageDialog(panel, "Kwota musi być większa niż 0.");
+                    return;
+                }
+                double currentBalance = DBManager.getBalance(GUI.currentUserLogin);
+                if (currentBalance >= amount) {
                     DBManager.updateBalance(GUI.currentUserLogin, -amount);
-                    logger.debug("Wypłata {:.2f} PLN zakończona sukcesem przez użytkownika: {}", amount, GUI.currentUserLogin);
+                    logger.debug("Wypłata {} PLN zakończona sukcesem przez użytkownika: {}", amount, GUI.currentUserLogin);
                     JOptionPane.showMessageDialog(panel, "Wypłata zakończona sukcesem!");
                     panel.dispose();
                     new UserPanel();
@@ -62,6 +72,7 @@ public class UserPanelHandler {
         }
     }
 
+
     private static void handleTransfer(UserPanel panel) {
         String receiverAccount = JOptionPane.showInputDialog(panel, "Wpisz numer konta odbiorcy:");
         String amountStr = JOptionPane.showInputDialog(panel, "Wpisz kwotę do przelewu:");
@@ -70,7 +81,7 @@ public class UserPanelHandler {
             try {
                 double amount = Double.parseDouble(amountStr);
                 if (DBManager.makeTransfer(GUI.currentUserLogin, receiverAccount, amount, subject)) {
-                    logger.debug("Przelew {:.2f} PLN do {} zakończony sukcesem. Użytkownik: {}", amount, receiverAccount, GUI.currentUserLogin);
+                    logger.debug("Przelew {} PLN do {} zakończony sukcesem. Użytkownik: {}", amount, receiverAccount, GUI.currentUserLogin);
                     JOptionPane.showMessageDialog(panel, "Przelew zakończony sukcesem!");
                     panel.dispose();
                     new UserPanel();

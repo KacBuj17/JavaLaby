@@ -65,10 +65,6 @@ public class UserPanel extends JFrame {
         setVisible(true);
     }
 
-    public JLabel getBalanceLabel() {
-        return balanceLabel;
-    }
-
     public RoundedButton getDepositButton() {
         return depositButton;
     }

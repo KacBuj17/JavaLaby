@@ -8,13 +8,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class UserPanel extends JFrame {
-    private JLabel balanceLabel;
-    private RoundedButton depositButton;
-    private RoundedButton withdrawButton;
-    private RoundedButton transferButton;
-    private RoundedButton transfersButton;
-    private RoundedButton infoButton;
-    private RoundedButton logoutButton;
+    private final RoundedButton depositButton;
+    private final RoundedButton withdrawButton;
+    private final RoundedButton transferButton;
+    private final RoundedButton transfersButton;
+    private final RoundedButton infoButton;
+    private final RoundedButton logoutButton;
 
     public UserPanel() {
         setTitle("Panel użytkownika");
@@ -31,7 +30,7 @@ public class UserPanel extends JFrame {
 
         JPanel balancePanel = new JPanel();
         balancePanel.setBackground(Color.WHITE);
-        balanceLabel = new JLabel("Stan konta: " + DBManager.getBalance(GUI.currentUserLogin) + " PLN");
+        JLabel balanceLabel = new JLabel("Stan konta: " + DBManager.getBalance(GUI.currentUserLogin) + " PLN");
         balanceLabel.setFont(new Font("Segoe UI", Font.BOLD, 18));
         balancePanel.add(balanceLabel);
         add(balancePanel, BorderLayout.NORTH);

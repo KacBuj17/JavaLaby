@@ -13,7 +13,7 @@ public class AdminRegisterPanelHandler {
 
     public static void attachHandlers(AdminRegisterPanel panel) {
         logger.debug("Przypisywanie handlera do przycisku rejestracji administratora");
-        panel.getRegisterButton().addActionListener(e -> handleRegister(panel));
+        panel.getRegisterButton().addActionListener(_ -> handleRegister(panel));
     }
 
     private static void handleRegister(AdminRegisterPanel panel) {

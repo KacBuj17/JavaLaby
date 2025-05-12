@@ -20,6 +20,17 @@ public class WelcomeScreen extends JFrame {
         welcomeLabel.setBorder(BorderFactory.createEmptyBorder(40, 10, 20, 10));
         add(welcomeLabel, BorderLayout.NORTH);
 
+        JPanel buttonPanel = getJPanel();
+
+        JPanel centerPanel = new JPanel(new GridBagLayout());
+        centerPanel.setBackground(Color.WHITE);
+        centerPanel.add(buttonPanel);
+        add(centerPanel, BorderLayout.CENTER);
+
+        setVisible(true);
+    }
+
+    private JPanel getJPanel() {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(Color.WHITE);
         buttonPanel.setLayout(new GridLayout(4, 1, 10, 20));
@@ -29,21 +40,15 @@ public class WelcomeScreen extends JFrame {
         RoundedButton adminLoginButton = new RoundedButton("Zaloguj się jako administrator");
         RoundedButton exitButton = new RoundedButton("Zamknij program");
 
-        loginButton.addActionListener(e -> WelcomeScreenHandler.handleLoginButton(this));
-        registerButton.addActionListener(e -> WelcomeScreenHandler.handleRegisterButton(this));
-        adminLoginButton.addActionListener(e -> WelcomeScreenHandler.handleAdminLoginButton(this));
-        exitButton.addActionListener(e -> WelcomeScreenHandler.handleExitButton(this));
+        loginButton.addActionListener(_ -> WelcomeScreenHandler.handleLoginButton(this));
+        registerButton.addActionListener(_ -> WelcomeScreenHandler.handleRegisterButton(this));
+        adminLoginButton.addActionListener(_ -> WelcomeScreenHandler.handleAdminLoginButton(this));
+        exitButton.addActionListener(_ -> WelcomeScreenHandler.handleExitButton(this));
 
         buttonPanel.add(loginButton);
         buttonPanel.add(registerButton);
         buttonPanel.add(adminLoginButton);
         buttonPanel.add(exitButton);
-
-        JPanel centerPanel = new JPanel(new GridBagLayout());
-        centerPanel.setBackground(Color.WHITE);
-        centerPanel.add(buttonPanel);
-        add(centerPanel, BorderLayout.CENTER);
-
-        setVisible(true);
+        return buttonPanel;
     }
 }

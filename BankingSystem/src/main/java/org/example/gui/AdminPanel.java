@@ -7,9 +7,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class AdminPanel extends JFrame {
-    private RoundedButton registerAdminButton;
-    private RoundedButton viewUsersButton;
-    private RoundedButton logoutButton;
+    private final RoundedButton registerAdminButton;
+    private final RoundedButton viewUsersButton;
+    private final RoundedButton logoutButton;
 
     public AdminPanel() {
         setTitle("Panel Administratora");
@@ -37,7 +37,7 @@ public class AdminPanel extends JFrame {
 
         add(optionsPanel, BorderLayout.CENTER);
 
-        AdminPanelHandler.attachHandlers(this); // <-- Podpięcie handlera
+        AdminPanelHandler.attachHandlers(this);
 
         setVisible(true);
     }

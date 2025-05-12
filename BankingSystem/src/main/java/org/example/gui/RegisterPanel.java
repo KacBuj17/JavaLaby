@@ -7,12 +7,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class RegisterPanel extends JFrame {
-    private JTextField nameField;
-    private JTextField surnameField;
-    private JTextField emailField;
-    private JTextField loginField;
-    private JPasswordField passwordField;
-    private JPasswordField confirmPasswordField;
+    private final JTextField nameField;
+    private final JTextField surnameField;
+    private final JTextField emailField;
+    private final JTextField loginField;
+    private final JPasswordField passwordField;
+    private final JPasswordField confirmPasswordField;
 
     public RegisterPanel() {
         setTitle("Rejestracja");
@@ -58,23 +58,28 @@ public class RegisterPanel extends JFrame {
 
         add(form, BorderLayout.CENTER);
 
+        JPanel buttons = getJPanel();
+        add(buttons, BorderLayout.SOUTH);
+
+        setVisible(true);
+    }
+
+    private JPanel getJPanel() {
         JPanel buttons = new JPanel();
         buttons.setBackground(Color.WHITE);
         RoundedButton registerBtn = new RoundedButton("Zarejestruj");
         RoundedButton backBtn = new RoundedButton("Powrót");
 
-        registerBtn.addActionListener(e -> RegisterPanelHandler.handleRegisterButton(
+        registerBtn.addActionListener(_ -> RegisterPanelHandler.handleRegisterButton(
                 nameField, surnameField, emailField, loginField, passwordField, confirmPasswordField, this));
 
-        backBtn.addActionListener(e -> {
+        backBtn.addActionListener(_ -> {
             dispose();
             new WelcomeScreen();
         });
 
         buttons.add(registerBtn);
         buttons.add(backBtn);
-        add(buttons, BorderLayout.SOUTH);
-
-        setVisible(true);
+        return buttons;
     }
 }

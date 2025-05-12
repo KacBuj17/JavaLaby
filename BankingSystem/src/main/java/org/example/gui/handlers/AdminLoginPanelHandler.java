@@ -16,8 +16,8 @@ public class AdminLoginPanelHandler {
 
     public static void attachHandlers(AdminLoginPanel panel) {
         logger.debug("Przypisywanie akcji do przycisków panelu logowania administratora.");
-        panel.getLoginBtn().addActionListener(e -> handleLogin(panel));
-        panel.getBackBtn().addActionListener(e -> handleBack(panel));
+        panel.getLoginBtn().addActionListener(_ -> handleLogin(panel));
+        panel.getBackBtn().addActionListener(_ -> handleBack(panel));
     }
 
     private static void handleLogin(AdminLoginPanel panel) {

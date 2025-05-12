@@ -7,10 +7,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class LoginPanel extends JFrame {
-    private JTextField loginField;
-    private JPasswordField passwordField;
-    private RoundedButton loginBtn;
-    private RoundedButton backBtn;
+    private final JTextField loginField;
+    private final JPasswordField passwordField;
+    private final RoundedButton loginBtn;
+    private final RoundedButton backBtn;
 
     public LoginPanel() {
         setTitle("Logowanie");

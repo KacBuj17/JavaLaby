@@ -149,3 +149,254 @@
 2025-05-11 20:23:13 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Użytkownik wylogował się: 1234
 2025-05-11 20:23:14 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk wyjścia.
 2025-05-11 20:23:15 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Użytkownik potwierdził zamknięcie programu.
+2025-05-12 14:56:45 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-12 14:56:46 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-12 14:56:48 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 1234
+2025-05-12 14:56:48 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 1234
+2025-05-12 14:56:50 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Wpłata 123.0 PLN zakończona sukcesem przez użytkownika: 1234
+2025-05-12 14:56:54 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Wypłata 123.0 PLN zakończona sukcesem przez użytkownika: 1234
+2025-05-12 14:57:02 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano historię transakcji dla użytkownika: 1234
+2025-05-12 14:57:04 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano dane użytkownika: 1234
+2025-05-12 14:57:05 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Użytkownik wylogował się: 1234
+2025-05-12 14:57:07 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania administratora.
+2025-05-12 14:57:07 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Przypisywanie akcji do przycisków panelu logowania administratora.
+2025-05-12 14:57:09 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Próba logowania administratora: 123
+2025-05-12 14:57:09 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Logowanie administratora zakończone sukcesem: 123
+2025-05-12 14:57:09 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Przypisywanie handlerów do przycisków panelu administratora
+2025-05-12 14:57:10 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Kliknięto przycisk: Zarejestruj administratora
+2025-05-12 14:57:10 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminRegisterPanelHandler - Przypisywanie handlera do przycisku rejestracji administratora
+2025-05-12 14:57:12 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Kliknięto przycisk: Wyświetl użytkowników
+2025-05-12 14:57:13 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Pomyślnie załadowano i wyświetlono dane użytkowników
+2025-05-12 14:57:14 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Kliknięto przycisk: Wyloguj
+2025-05-12 14:57:15 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk wyjścia.
+2025-05-12 14:57:16 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Użytkownik potwierdził zamknięcie programu.
+2025-05-12 15:00:29 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-12 15:00:29 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-12 15:00:33 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 1234
+2025-05-12 15:00:33 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Baza danych i tabele zainicjalizowane.
+2025-05-12 15:00:33 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Logowanie użytkownika 1234: sukces
+2025-05-12 15:00:33 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 1234
+2025-05-12 15:00:33 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 1234: 5.0
+2025-05-12 15:00:35 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Numer konta dla loginu 1234: PL8384624957
+2025-05-12 15:00:35 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Wpłata: 123.0 zł dla użytkownika 1234
+2025-05-12 15:00:35 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Wpłata 123.0 PLN zakończona sukcesem przez użytkownika: 1234
+2025-05-12 15:00:36 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 1234: 128.0
+2025-05-12 15:00:41 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 1234: 128.0
+2025-05-12 15:00:41 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Numer konta dla loginu 1234: PL8384624957
+2025-05-12 15:00:41 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Wypłata: -123.0 zł dla użytkownika 1234
+2025-05-12 15:00:41 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Wypłata 123.0 PLN zakończona sukcesem przez użytkownika: 1234
+2025-05-12 15:00:41 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 1234: 5.0
+2025-05-12 15:00:42 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Numer konta dla loginu 1234: PL8384624957
+2025-05-12 15:00:42 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Pobieranie historii transakcji dla konta: PL8384624957
+2025-05-12 15:00:46 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano historię transakcji dla użytkownika: 1234
+2025-05-12 15:00:47 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Pobieranie danych użytkownika: 1234
+2025-05-12 15:00:48 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano dane użytkownika: 1234
+2025-05-12 15:00:49 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Użytkownik wylogował się: 1234
+2025-05-12 15:00:50 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk rejestracji.
+2025-05-12 15:00:53 [AWT-EventQueue-0] DEBUG o.e.g.handlers.RegisterPanelHandler - Rozpoczęcie procesu rejestracji użytkownika: 4
+2025-05-12 15:00:53 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Wygenerowano unikalny numer konta: PL5169455275
+2025-05-12 15:00:53 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Zarejestrowano nowego użytkownika: 4
+2025-05-12 15:00:53 [AWT-EventQueue-0] DEBUG o.e.g.handlers.RegisterPanelHandler - Rejestracja zakończona sukcesem dla użytkownika: 4
+2025-05-12 15:00:56 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-12 15:00:57 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 4
+2025-05-12 15:00:57 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Logowanie użytkownika 4: sukces
+2025-05-12 15:00:57 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 4
+2025-05-12 15:00:57 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 4: 0.0
+2025-05-12 15:01:01 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Numer konta dla loginu 4: PL5169455275
+2025-05-12 15:01:01 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Wpłata: 1234.0 zł dla użytkownika 4
+2025-05-12 15:01:01 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Wpłata 1234.0 PLN zakończona sukcesem przez użytkownika: 4
+2025-05-12 15:01:02 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 4: 1234.0
+2025-05-12 15:01:04 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 4: 1234.0
+2025-05-12 15:01:04 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Numer konta dla loginu 4: PL5169455275
+2025-05-12 15:01:04 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Wypłata: -1234.0 zł dla użytkownika 4
+2025-05-12 15:01:04 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Wypłata 1234.0 PLN zakończona sukcesem przez użytkownika: 4
+2025-05-12 15:01:04 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 4: 0.0
+2025-05-12 15:01:05 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Pobieranie danych użytkownika: 4
+2025-05-12 15:01:05 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano dane użytkownika: 4
+2025-05-12 15:01:06 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Numer konta dla loginu 4: PL5169455275
+2025-05-12 15:01:06 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Pobieranie historii transakcji dla konta: PL5169455275
+2025-05-12 15:01:07 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano historię transakcji dla użytkownika: 4
+2025-05-12 15:01:18 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Użytkownik wylogował się: 4
+2025-05-12 15:01:20 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania administratora.
+2025-05-12 15:01:20 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Przypisywanie akcji do przycisków panelu logowania administratora.
+2025-05-12 15:01:21 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Próba logowania administratora: 123
+2025-05-12 15:01:21 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Logowanie administratora 123: niepowodzenie
+2025-05-12 15:01:21 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Nieudane logowanie administratora: 123
+2025-05-12 15:01:23 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Próba logowania administratora: 123
+2025-05-12 15:01:23 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Logowanie administratora 123: sukces
+2025-05-12 15:01:23 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Logowanie administratora zakończone sukcesem: 123
+2025-05-12 15:01:23 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Przypisywanie handlerów do przycisków panelu administratora
+2025-05-12 15:01:24 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Kliknięto przycisk: Zarejestruj administratora
+2025-05-12 15:01:24 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminRegisterPanelHandler - Przypisywanie handlera do przycisku rejestracji administratora
+2025-05-12 15:01:26 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminRegisterPanelHandler - Kliknięto przycisk: Zarejestruj administratora
+2025-05-12 15:01:26 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminRegisterPanelHandler - Dane rejestracji - Imię: 4, Nazwisko: 4, Email: 4, Login: 4
+2025-05-12 15:01:26 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Zarejestrowano nowego administratora: 4
+2025-05-12 15:01:26 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminRegisterPanelHandler - Administrator zarejestrowany pomyślnie
+2025-05-12 15:01:28 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Kliknięto przycisk: Wyloguj
+2025-05-12 15:01:30 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania administratora.
+2025-05-12 15:01:30 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Przypisywanie akcji do przycisków panelu logowania administratora.
+2025-05-12 15:01:31 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Próba logowania administratora: 4
+2025-05-12 15:01:31 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Logowanie administratora 4: sukces
+2025-05-12 15:01:31 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Logowanie administratora zakończone sukcesem: 4
+2025-05-12 15:01:31 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Przypisywanie handlerów do przycisków panelu administratora
+2025-05-12 15:01:32 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Kliknięto przycisk: Wyświetl użytkowników
+2025-05-12 15:01:32 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Pobieranie listy wszystkich użytkowników
+2025-05-12 15:01:33 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Pomyślnie załadowano i wyświetlono dane użytkowników
+2025-05-12 15:01:34 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.AdminPanelHandler - Kliknięto przycisk: Wyloguj
+2025-05-12 15:01:36 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk wyjścia.
+2025-05-12 15:01:37 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Użytkownik potwierdził zamknięcie programu.
+2025-05-12 15:04:03 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-12 15:04:03 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-12 15:04:05 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 1234
+2025-05-12 15:04:05 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Baza danych i tabele zainicjalizowane.
+2025-05-12 15:04:05 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Logowanie użytkownika 1234: sukces
+2025-05-12 15:04:05 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 1234
+2025-05-12 15:04:05 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 1234: 5.0
+2025-05-12 15:04:06 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Pobieranie danych użytkownika: 1234
+2025-05-12 15:04:18 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano dane użytkownika: 1234
+2025-05-12 15:05:11 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-12 15:05:11 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-12 15:05:12 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 1234
+2025-05-12 15:05:12 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Baza danych i tabele zainicjalizowane.
+2025-05-12 15:05:13 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Logowanie użytkownika 1234: sukces
+2025-05-12 15:05:13 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 1234
+2025-05-12 15:05:13 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 1234: 5.0
+2025-05-12 15:05:13 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Pobieranie danych użytkownika: 1234
+2025-05-12 15:05:23 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano dane użytkownika: 1234
+2025-05-12 15:05:24 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Użytkownik wylogował się: 1234
+2025-05-12 15:05:26 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-12 15:05:27 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-12 15:05:27 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Kliknięto przycisk powrotu w panelu logowania
+2025-05-12 15:05:28 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-12 15:05:28 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-12 15:05:30 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 4
+2025-05-12 15:05:30 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Logowanie użytkownika 4: sukces
+2025-05-12 15:05:30 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 4
+2025-05-12 15:05:30 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 4: 0.0
+2025-05-12 15:05:32 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Numer konta dla loginu 4: PL5169455275
+2025-05-12 15:05:32 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Wpłata: 100.0 zł dla użytkownika 4
+2025-05-12 15:05:32 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Wpłata 100.0 PLN zakończona sukcesem przez użytkownika: 4
+2025-05-12 15:05:33 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 4: 100.0
+2025-05-12 15:05:44 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Przelew z PL5169455275 do PL8384624957 na kwotę -100.0 PLN - temat: Tytuł
+2025-05-12 15:05:44 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Przelew -100.0 PLN do PL8384624957 zakończony sukcesem. Użytkownik: 4
+2025-05-12 15:05:45 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 4: 200.0
+2025-05-12 15:05:50 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Użytkownik wylogował się: 4
+2025-05-12 15:05:52 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-12 15:05:52 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-12 15:05:56 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 1234
+2025-05-12 15:05:56 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Logowanie użytkownika 1234: sukces
+2025-05-12 15:05:56 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 1234
+2025-05-12 15:05:56 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 1234: -95.0
+2025-05-12 15:07:03 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-12 15:07:03 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-12 15:07:07 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 1234
+2025-05-12 15:07:07 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Baza danych i tabele zainicjalizowane.
+2025-05-12 15:07:07 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Logowanie użytkownika 1234: sukces
+2025-05-12 15:07:07 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 1234
+2025-05-12 15:07:07 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 1234: -95.0
+2025-05-12 15:07:10 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Numer konta dla loginu 1234: PL8384624957
+2025-05-12 15:07:10 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Wpłata: 200.0 zł dla użytkownika 1234
+2025-05-12 15:07:10 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Wpłata 200.0 PLN zakończona sukcesem przez użytkownika: 1234
+2025-05-12 15:07:11 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 1234: 105.0
+2025-05-12 15:07:13 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 1234: 105.0
+2025-05-12 15:07:13 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Numer konta dla loginu 1234: PL8384624957
+2025-05-12 15:07:13 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Wypłata: -5.0 zł dla użytkownika 1234
+2025-05-12 15:07:13 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Wypłata 5.0 PLN zakończona sukcesem przez użytkownika: 1234
+2025-05-12 15:07:13 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 1234: 100.0
+2025-05-12 15:07:15 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Numer konta dla loginu 1234: PL8384624957
+2025-05-12 15:07:15 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Pobieranie historii transakcji dla konta: PL8384624957
+2025-05-12 15:07:15 [AWT-EventQueue-0] WARN  o.e.gui.handlers.UserPanelHandler - Pominięto transakcję z ujemną kwotą: -100.0 PLN
+2025-05-12 15:07:29 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano historię transakcji dla użytkownika: 1234
+2025-05-12 15:07:33 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Pobieranie danych użytkownika: 1234
+2025-05-12 15:07:36 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano dane użytkownika: 1234
+2025-05-12 15:07:36 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Użytkownik wylogował się: 1234
+2025-05-12 15:07:38 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-12 15:07:38 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-12 15:07:39 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 4
+2025-05-12 15:07:39 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Logowanie użytkownika 4: sukces
+2025-05-12 15:07:39 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 4
+2025-05-12 15:07:39 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 4: 200.0
+2025-05-12 15:07:49 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Przelew z PL5169455275 do PL8384624957 na kwotę 200.0 PLN - temat: Tytuł
+2025-05-12 15:07:49 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Przelew 200.0 PLN do PL8384624957 zakończony sukcesem. Użytkownik: 4
+2025-05-12 15:07:50 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 4: 0.0
+2025-05-12 15:07:51 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Pobieranie danych użytkownika: 4
+2025-05-12 15:07:53 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano dane użytkownika: 4
+2025-05-12 15:07:53 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Numer konta dla loginu 4: PL5169455275
+2025-05-12 15:07:53 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Pobieranie historii transakcji dla konta: PL5169455275
+2025-05-12 15:07:53 [AWT-EventQueue-0] WARN  o.e.gui.handlers.UserPanelHandler - Pominięto transakcję z ujemną kwotą: -100.0 PLN
+2025-05-12 15:07:56 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano historię transakcji dla użytkownika: 4
+2025-05-12 15:07:57 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Użytkownik wylogował się: 4
+2025-05-12 15:07:58 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-12 15:07:58 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-12 15:07:59 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 1234
+2025-05-12 15:07:59 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Logowanie użytkownika 1234: sukces
+2025-05-12 15:07:59 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 1234
+2025-05-12 15:07:59 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 1234: 300.0
+2025-05-12 15:08:00 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Pobieranie danych użytkownika: 1234
+2025-05-12 15:08:01 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano dane użytkownika: 1234
+2025-05-12 15:08:01 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Numer konta dla loginu 1234: PL8384624957
+2025-05-12 15:08:01 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Pobieranie historii transakcji dla konta: PL8384624957
+2025-05-12 15:08:01 [AWT-EventQueue-0] WARN  o.e.gui.handlers.UserPanelHandler - Pominięto transakcję z ujemną kwotą: -100.0 PLN
+2025-05-12 15:08:04 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano historię transakcji dla użytkownika: 1234
+2025-05-12 15:08:06 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Użytkownik wylogował się: 1234
+2025-05-12 15:08:08 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-12 15:08:08 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-12 15:08:09 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 4
+2025-05-12 15:08:09 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Logowanie użytkownika 4: sukces
+2025-05-12 15:08:09 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 4
+2025-05-12 15:08:09 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 4: 0.0
+2025-05-12 15:08:09 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Pobieranie danych użytkownika: 4
+2025-05-12 15:08:11 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano dane użytkownika: 4
+2025-05-12 15:08:19 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Przelew z PL5169455275 do PL8384624957 na kwotę -4.0 PLN - temat: 4
+2025-05-12 15:08:19 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Przelew -4.0 PLN do PL8384624957 zakończony sukcesem. Użytkownik: 4
+2025-05-12 15:08:20 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 4: 4.0
+2025-05-12 15:08:29 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Przelew z PL5169455275 do PL8384624957 na kwotę -23.0 PLN - temat: 
+2025-05-12 15:08:29 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Przelew -23.0 PLN do PL8384624957 zakończony sukcesem. Użytkownik: 4
+2025-05-12 15:08:29 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 4: 27.0
+2025-05-12 15:08:30 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Użytkownik wylogował się: 4
+2025-05-12 15:09:50 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-12 15:09:50 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-12 15:09:51 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 1234
+2025-05-12 15:09:51 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Baza danych i tabele zainicjalizowane.
+2025-05-12 15:09:51 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Logowanie użytkownika 1234: sukces
+2025-05-12 15:09:51 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 1234
+2025-05-12 15:09:51 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 1234: 273.0
+2025-05-12 15:09:52 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Pobieranie danych użytkownika: 1234
+2025-05-12 15:09:53 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano dane użytkownika: 1234
+2025-05-12 15:09:54 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Numer konta dla loginu 1234: PL8384624957
+2025-05-12 15:09:54 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Pobieranie historii transakcji dla konta: PL8384624957
+2025-05-12 15:09:57 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano historię transakcji dla użytkownika: 1234
+2025-05-12 15:10:02 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Pobieranie danych użytkownika: 1234
+2025-05-12 15:10:04 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano dane użytkownika: 1234
+2025-05-12 15:10:04 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Użytkownik wylogował się: 1234
+2025-05-12 15:10:06 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania administratora.
+2025-05-12 15:10:06 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Przypisywanie akcji do przycisków panelu logowania administratora.
+2025-05-12 15:10:06 [AWT-EventQueue-0] DEBUG o.e.g.h.AdminLoginPanelHandler - Powrót do ekranu powitalnego z panelu logowania administratora.
+2025-05-12 15:10:07 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-12 15:10:07 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-12 15:10:08 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 4
+2025-05-12 15:10:08 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Logowanie użytkownika 4: sukces
+2025-05-12 15:10:08 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 4
+2025-05-12 15:10:08 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 4: 27.0
+2025-05-12 15:10:14 [AWT-EventQueue-0] WARN  o.e.gui.handlers.UserPanelHandler - Próba wykonania przelewu z nieprawidłową kwotą: -8.0 PLN
+2025-05-12 15:10:21 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Transfer nieudany - brak środków lub nieprawidłowy login: 4
+2025-05-12 15:10:21 [AWT-EventQueue-0] ERROR o.e.gui.handlers.UserPanelHandler - Błąd przelewu. Nadawca: 4, Odbiorca: PL8384624957, Kwota: 10000.0
+2025-05-12 15:10:27 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Przelew z PL5169455275 do PL8384624957 na kwotę 22.0 PLN - temat: t
+2025-05-12 15:10:27 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Przelew 22.0 PLN do PL8384624957 zakończony sukcesem. Użytkownik: 4
+2025-05-12 15:10:28 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 4: 5.0
+2025-05-12 15:10:29 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Użytkownik wylogował się: 4
+2025-05-12 15:10:30 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk logowania.
+2025-05-12 15:10:30 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Przypisywanie handlerów do przycisków logowania użytkownika
+2025-05-12 15:10:31 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Próba logowania użytkownika: 1234
+2025-05-12 15:10:31 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Logowanie użytkownika 1234: sukces
+2025-05-12 15:10:31 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.LoginPanelHandler - Logowanie udane dla użytkownika: 1234
+2025-05-12 15:10:31 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 1234: 295.0
+2025-05-12 15:10:40 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Przelew z PL8384624957 do PL8384624957 na kwotę 295.0 PLN - temat: T
+2025-05-12 15:10:40 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Przelew 295.0 PLN do PL8384624957 zakończony sukcesem. Użytkownik: 1234
+2025-05-12 15:10:41 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Saldo użytkownika 1234: 295.0
+2025-05-12 15:10:42 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Numer konta dla loginu 1234: PL8384624957
+2025-05-12 15:10:42 [AWT-EventQueue-0] DEBUG org.example.db.DBManager - Pobieranie historii transakcji dla konta: PL8384624957
+2025-05-12 15:10:46 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Pobrano historię transakcji dla użytkownika: 1234
+2025-05-12 15:10:51 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Użytkownik wylogował się: 1234
+2025-05-12 15:10:52 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk wyjścia.
+2025-05-12 15:10:53 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Użytkownik potwierdził zamknięcie programu.

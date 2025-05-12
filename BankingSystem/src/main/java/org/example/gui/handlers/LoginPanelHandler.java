@@ -16,8 +16,8 @@ public class LoginPanelHandler {
 
     public static void attachHandlers(LoginPanel panel) {
         logger.debug("Przypisywanie handlerów do przycisków logowania użytkownika");
-        panel.getLoginBtn().addActionListener(e -> handleLogin(panel));
-        panel.getBackBtn().addActionListener(e -> handleBack(panel));
+        panel.getLoginBtn().addActionListener(_ -> handleLogin(panel));
+        panel.getBackBtn().addActionListener(_ -> handleBack(panel));
     }
 
     private static void handleLogin(LoginPanel panel) {

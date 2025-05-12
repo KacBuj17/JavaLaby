@@ -1,5 +1,8 @@
 package org.example.db;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.sql.*;
@@ -10,6 +13,7 @@ import java.util.Random;
 
 public class DBManager {
     private static final String DB_URL = "jdbc:sqlite:bank.db";
+    private static final Logger logger = LoggerFactory.getLogger(DBManager.class);
 
     static {
         try (Connection conn = DriverManager.getConnection(DB_URL);
@@ -52,8 +56,9 @@ public class DBManager {
                     )
                     """);
 
+            logger.debug("Baza danych i tabele zainicjalizowane.");
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.debug("Błąd podczas inicjalizacji bazy danych: {}", e.getMessage());
         }
     }
 
@@ -63,6 +68,7 @@ public class DBManager {
             byte[] hashed = md.digest(password.getBytes());
             return Base64.getEncoder().encodeToString(hashed);
         } catch (Exception e) {
+            logger.debug("Hashing password failed: {}", e.getMessage());
             throw new RuntimeException("Hashing failed", e);
         }
     }
@@ -82,8 +88,10 @@ public class DBManager {
             pstmt.setString(6, accountNumber);
             pstmt.executeUpdate();
             conn.commit();
+            logger.debug("Zarejestrowano nowego użytkownika: {}", login);
             return true;
         } catch (SQLException e) {
+            logger.debug("Błąd podczas rejestracji użytkownika: {}", e.getMessage());
             return false;
         }
     }
@@ -98,8 +106,10 @@ public class DBManager {
             pstmt.setString(4, login);
             pstmt.setString(5, hashPassword(password));
             pstmt.executeUpdate();
+            logger.debug("Zarejestrowano nowego administratora: {}", login);
             return true;
         } catch (SQLException e) {
+            logger.debug("Błąd podczas rejestracji administratora: {}", e.getMessage());
             return false;
         }
     }
@@ -110,8 +120,11 @@ public class DBManager {
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, login);
             pstmt.setString(2, hashPassword(password));
-            return pstmt.executeQuery().next();
+            boolean success = pstmt.executeQuery().next();
+            logger.debug("Logowanie użytkownika {}: {}", login, success ? "sukces" : "niepowodzenie");
+            return success;
         } catch (SQLException e) {
+            logger.debug("Błąd podczas walidacji logowania użytkownika: {}", e.getMessage());
             return false;
         }
     }
@@ -122,8 +135,11 @@ public class DBManager {
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, login);
             pstmt.setString(2, hashPassword(password));
-            return pstmt.executeQuery().next();
+            boolean success = pstmt.executeQuery().next();
+            logger.debug("Logowanie administratora {}: {}", login, success ? "sukces" : "niepowodzenie");
+            return success;
         } catch (SQLException e) {
+            logger.debug("Błąd podczas walidacji logowania administratora: {}", e.getMessage());
             return false;
         }
     }
@@ -134,6 +150,7 @@ public class DBManager {
         do {
             number = "PL" + (1000000000L + rand.nextLong(9000000000L));
         } while (accountNumberExists(number));
+        logger.debug("Wygenerowano unikalny numer konta: {}", number);
         return number;
     }
 
@@ -144,6 +161,7 @@ public class DBManager {
             pstmt.setString(1, number);
             return pstmt.executeQuery().next();
         } catch (SQLException e) {
+            logger.debug("Błąd podczas sprawdzania istnienia numeru konta: {}", e.getMessage());
             return true;
         }
     }
@@ -154,13 +172,16 @@ public class DBManager {
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, login);
             ResultSet rs = pstmt.executeQuery();
-            return rs.next() ? rs.getDouble("balance") : 0;
+            double balance = rs.next() ? rs.getDouble("balance") : 0;
+            logger.debug("Saldo użytkownika {}: {}", login, balance);
+            return balance;
         } catch (SQLException e) {
+            logger.debug("Błąd przy pobieraniu salda: {}", e.getMessage());
             return 0;
         }
     }
 
-    public static boolean updateBalance(String login, double amount) {
+    public static void updateBalance(String login, double amount) {
         String sql = "UPDATE users SET balance = balance + ? WHERE login = ?";
         String insertTransfer = "INSERT INTO transfers(from_account, to_account, amount, subject, timestamp) VALUES (?, ?, ?, ?, ?)";
 
@@ -174,7 +195,8 @@ public class DBManager {
             String accountNumber = getAccountNumber(login);
             if (accountNumber == null) {
                 conn.rollback();
-                return false;
+                logger.debug("Nie znaleziono numeru konta dla loginu: {}", login);
+                return;
             }
 
             String subject = amount > 0 ? "Wpłata" : "Wypłata";
@@ -187,9 +209,9 @@ public class DBManager {
             psTransfer.executeUpdate();
 
             conn.commit();
-            return true;
+            logger.debug("{}: {} zł dla użytkownika {}", subject, amount, login);
         } catch (SQLException e) {
-            return false;
+            logger.debug("Wystąpił błąd w trakcie aktualizacji stanu konta: {}", e.getMessage());
         }
     }
 
@@ -207,6 +229,7 @@ public class DBManager {
             ResultSet rsSender = psSender.executeQuery();
             if (!rsSender.next() || rsSender.getDouble("balance") < amount) {
                 conn.rollback();
+                logger.debug("Transfer nieudany - brak środków lub nieprawidłowy login: {}", fromLogin);
                 return false;
             }
             String fromAccount = rsSender.getString("account_number");
@@ -215,6 +238,7 @@ public class DBManager {
             psReceiver.setString(1, toAccount);
             if (!psReceiver.executeQuery().next()) {
                 conn.rollback();
+                logger.debug("Transfer nieudany - odbiorca nie istnieje: {}", toAccount);
                 return false;
             }
 
@@ -237,8 +261,10 @@ public class DBManager {
             psTransfer.executeUpdate();
 
             conn.commit();
+            logger.debug("Przelew z {} do {} na kwotę {} PLN - temat: {}", fromAccount, toAccount, amount, subject);
             return true;
         } catch (SQLException e) {
+            logger.debug("Błąd podczas realizacji przelewu: {}", e.getMessage());
             return false;
         }
     }
@@ -250,8 +276,10 @@ public class DBManager {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, accountNumber);
             pstmt.setString(2, accountNumber);
+            logger.debug("Pobieranie historii transakcji dla konta: {}", accountNumber);
             return pstmt.executeQuery();
         } catch (SQLException e) {
+            logger.debug("Błąd przy pobieraniu historii transakcji: {}", e.getMessage());
             return null;
         }
     }
@@ -262,8 +290,11 @@ public class DBManager {
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, login);
             ResultSet rs = pstmt.executeQuery();
-            return rs.next() ? rs.getString("account_number") : null;
+            String acc = rs.next() ? rs.getString("account_number") : null;
+            logger.debug("Numer konta dla loginu {}: {}", login, acc);
+            return acc;
         } catch (SQLException e) {
+            logger.debug("Błąd podczas pobierania numeru konta: {}", e.getMessage());
             return null;
         }
     }
@@ -274,8 +305,10 @@ public class DBManager {
             Connection conn = DriverManager.getConnection(DB_URL);
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, login);
+            logger.debug("Pobieranie danych użytkownika: {}", login);
             return pstmt.executeQuery();
         } catch (SQLException e) {
+            logger.debug("Błąd podczas pobierania informacji o użytkowniku: {}", e.getMessage());
             return null;
         }
     }
@@ -285,8 +318,10 @@ public class DBManager {
         try {
             Connection conn = DriverManager.getConnection(DB_URL);
             PreparedStatement pstmt = conn.prepareStatement(sql);
+            logger.debug("Pobieranie listy wszystkich użytkowników");
             return pstmt.executeQuery();
         } catch (SQLException e) {
+            logger.debug("Błąd podczas pobierania listy użytkowników: {}", e.getMessage());
             return null;
         }
     }

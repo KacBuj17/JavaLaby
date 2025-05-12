@@ -20,12 +20,12 @@ public class AdminPanelHandler {
 
     public static void attachHandlers(AdminPanel panel) {
         logger.debug("Przypisywanie handlerów do przycisków panelu administratora");
-        panel.getRegisterAdminButton().addActionListener(e -> handleRegisterAdmin(panel));
-        panel.getViewUsersButton().addActionListener(e -> handleViewUsers(panel));
-        panel.getLogoutButton().addActionListener(e -> handleLogout(panel));
+        panel.getRegisterAdminButton().addActionListener(_ -> handleRegisterAdmin());
+        panel.getViewUsersButton().addActionListener(_ -> handleViewUsers(panel));
+        panel.getLogoutButton().addActionListener(_ -> handleLogout(panel));
     }
 
-    private static void handleRegisterAdmin(AdminPanel panel) {
+    private static void handleRegisterAdmin() {
         logger.debug("Kliknięto przycisk: Zarejestruj administratora");
         new AdminRegisterPanel();
     }

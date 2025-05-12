@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.sql.ResultSet;
 
 public class UserPanelHandler {
@@ -15,12 +17,12 @@ public class UserPanelHandler {
     private static final Logger logger = LoggerFactory.getLogger(UserPanelHandler.class);
 
     public static void attachHandlers(UserPanel panel) {
-        panel.getDepositButton().addActionListener(e -> handleDeposit(panel));
-        panel.getWithdrawButton().addActionListener(e -> handleWithdraw(panel));
-        panel.getTransferButton().addActionListener(e -> handleTransfer(panel));
-        panel.getTransfersButton().addActionListener(e -> handleTransfers(panel));
-        panel.getInfoButton().addActionListener(e -> handleInfo(panel));
-        panel.getLogoutButton().addActionListener(e -> handleLogout(panel));
+        panel.getDepositButton().addActionListener(_ -> handleDeposit(panel));
+        panel.getWithdrawButton().addActionListener(_ -> handleWithdraw(panel));
+        panel.getTransferButton().addActionListener(_ -> handleTransfer(panel));
+        panel.getTransfersButton().addActionListener(_ -> handleTransfers(panel));
+        panel.getInfoButton().addActionListener(_ -> handleInfo(panel));
+        panel.getLogoutButton().addActionListener(_ -> handleLogout(panel));
     }
 
     private static void handleDeposit(UserPanel panel) {
@@ -77,9 +79,17 @@ public class UserPanelHandler {
         String receiverAccount = JOptionPane.showInputDialog(panel, "Wpisz numer konta odbiorcy:");
         String amountStr = JOptionPane.showInputDialog(panel, "Wpisz kwotę do przelewu:");
         String subject = JOptionPane.showInputDialog(panel, "Wpisz tytuł przelewu:");
+
         if (receiverAccount != null && amountStr != null && subject != null) {
             try {
                 double amount = Double.parseDouble(amountStr);
+
+                if (amount <= 0) {
+                    logger.warn("Próba wykonania przelewu z nieprawidłową kwotą: {} PLN", amount);
+                    JOptionPane.showMessageDialog(panel, "Kwota przelewu musi być większa niż 0.");
+                    return;
+                }
+
                 if (DBManager.makeTransfer(GUI.currentUserLogin, receiverAccount, amount, subject)) {
                     logger.debug("Przelew {} PLN do {} zakończony sukcesem. Użytkownik: {}", amount, receiverAccount, GUI.currentUserLogin);
                     JOptionPane.showMessageDialog(panel, "Przelew zakończony sukcesem!");
@@ -96,10 +106,12 @@ public class UserPanelHandler {
         }
     }
 
+
     private static void handleTransfers(UserPanel panel) {
         ResultSet rs = DBManager.getTransfers(DBManager.getAccountNumber(GUI.currentUserLogin));
         try {
             StringBuilder sb = new StringBuilder();
+            assert (rs != null);
             while (rs.next()) {
                 String from = rs.getString("from_account");
                 String to = rs.getString("to_account");
@@ -136,13 +148,49 @@ public class UserPanelHandler {
         ResultSet rs = DBManager.getUserInfo(GUI.currentUserLogin);
         try {
             if (rs != null && rs.next()) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("Imię: ").append(rs.getString("first_name")).append("\n")
-                        .append("Nazwisko: ").append(rs.getString("last_name")).append("\n")
-                        .append("Email: ").append(rs.getString("email")).append("\n")
-                        .append("Login: ").append(rs.getString("login")).append("\n")
-                        .append("Numer rachunku: ").append(rs.getString("account_number"));
-                JOptionPane.showMessageDialog(panel, sb.toString(), "Informacje o koncie", JOptionPane.INFORMATION_MESSAGE);
+                String firstName = rs.getString("first_name");
+                String lastName = rs.getString("last_name");
+                String email = rs.getString("email");
+                String login = rs.getString("login");
+                String accountNumber = rs.getString("account_number");
+
+                String infoText = "Imię: " + firstName + "\n" +
+                        "Nazwisko: " + lastName + "\n" +
+                        "Email: " + email + "\n" +
+                        "Login: " + login + "\n" +
+                        "Numer rachunku: " + accountNumber;
+
+                JTextArea textArea = new JTextArea(infoText);
+                textArea.setEditable(false);
+                textArea.setBackground(null);
+                textArea.setBorder(null);
+
+                JButton copyButton = new JButton("Kopiuj numer rachunku");
+                copyButton.addActionListener(e -> {
+                    StringSelection selection = new StringSelection(accountNumber);
+                    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                    clipboard.setContents(selection, null);
+                    JOptionPane.showMessageDialog(panel, "Numer rachunku został skopiowany do schowka.");
+                });
+
+                JButton closeButton = new JButton("Zamknij");
+                JDialog dialog = new JDialog((Frame) null, "Informacje o koncie", true);
+                closeButton.addActionListener(e -> dialog.dispose());
+
+                JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+                buttonPanel.add(copyButton);
+                buttonPanel.add(closeButton);
+
+                JPanel dialogPanel = new JPanel(new BorderLayout(10, 10));
+                dialogPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+                dialogPanel.add(new JScrollPane(textArea), BorderLayout.CENTER);
+                dialogPanel.add(buttonPanel, BorderLayout.SOUTH);
+
+                dialog.setContentPane(dialogPanel);
+                dialog.pack();
+                dialog.setLocationRelativeTo(panel);
+                dialog.setVisible(true);
+
                 logger.debug("Pobrano dane użytkownika: {}", GUI.currentUserLogin);
             } else {
                 logger.error("Nie znaleziono danych użytkownika: {}", GUI.currentUserLogin);
@@ -153,6 +201,7 @@ public class UserPanelHandler {
             JOptionPane.showMessageDialog(panel, "Wystąpił błąd podczas pobierania informacji.");
         }
     }
+
 
     private static void handleLogout(UserPanel panel) {
         logger.debug("Użytkownik wylogował się: {}", GUI.currentUserLogin);

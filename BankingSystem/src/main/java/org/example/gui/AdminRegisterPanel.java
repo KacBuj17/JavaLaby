@@ -6,12 +6,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class AdminRegisterPanel extends JFrame {
-    private JTextField firstNameField;
-    private JTextField lastNameField;
-    private JTextField emailField;
-    private JTextField loginField;
-    private JPasswordField passwordField;
-    private JButton registerButton;
+    private final JTextField firstNameField;
+    private final JTextField lastNameField;
+    private final JTextField emailField;
+    private final JTextField loginField;
+    private final JPasswordField passwordField;
+    private final JButton registerButton;
 
     public AdminRegisterPanel() {
         setTitle("Rejestracja Administratora");

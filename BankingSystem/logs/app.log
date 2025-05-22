@@ -401,3 +401,89 @@
 2025-05-12 15:10:52 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk wyjścia.
 2025-05-12 15:10:53 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Użytkownik potwierdził zamknięcie programu.
 2025-05-22 19:36:13 [AWT-EventQueue-0] ERROR o.e.gui.handlers.LoginPanelHandler - Nieudana próba logowania dla użytkownika: 
+2025-05-22 19:51:16 [AWT-EventQueue-0] ERROR o.e.gui.handlers.LoginPanelHandler - Nieudana próba logowania dla użytkownika: KacBuj17
+2025-05-22 19:51:19 [AWT-EventQueue-0] ERROR o.e.gui.handlers.LoginPanelHandler - Nieudana próba logowania dla użytkownika: KacBuj17
+2025-05-22 19:52:31 [AWT-EventQueue-0] ERROR o.e.gui.handlers.LoginPanelHandler - Nieudana próba logowania dla użytkownika: 123
+2025-05-22 19:55:03 [AWT-EventQueue-0] ERROR o.e.gui.handlers.LoginPanelHandler - Nieudana próba logowania dla użytkownika: KacBuj17
+2025-05-22 19:55:05 [AWT-EventQueue-0] ERROR o.e.gui.handlers.LoginPanelHandler - Nieudana próba logowania dla użytkownika: KacBuj17
+2025-05-22 19:55:07 [AWT-EventQueue-0] ERROR o.e.gui.handlers.LoginPanelHandler - Nieudana próba logowania dla użytkownika: KacBuj17
+2025-05-22 19:55:46 [AWT-EventQueue-0] ERROR o.e.gui.handlers.UserPanelHandler - Błąd przelewu. Nadawca: 123, Odbiorca: PL6735173336, Kwota: 123.0
+2025-05-22 19:55:53 [AWT-EventQueue-0] ERROR o.e.gui.handlers.UserPanelHandler - Błąd przelewu. Nadawca: 123, Odbiorca: PL6735173336, Kwota: 123.0
+2025-05-22 19:56:02 [AWT-EventQueue-0] ERROR o.e.gui.handlers.UserPanelHandler - Nieprawidłowy format liczby podczas przelewu: 
+java.lang.NumberFormatException: empty String
+	at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:1842)
+	at java.base/jdk.internal.math.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.base/java.lang.Double.parseDouble(Double.java:971)
+	at org.example.gui.handlers.UserPanelHandler.handleTransfer(UserPanelHandler.java:85)
+	at org.example.gui.handlers.UserPanelHandler.lambda$attachHandlers$2(UserPanelHandler.java:22)
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972)
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2314)
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:407)
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262)
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6576)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3404)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6341)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2260)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4958)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2318)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4790)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4916)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4559)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4500)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2304)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2671)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4790)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:725)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:702)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+2025-05-22 19:56:08 [AWT-EventQueue-0] ERROR o.e.gui.handlers.UserPanelHandler - Błąd przelewu. Nadawca: 123, Odbiorca: PL6735173336, Kwota: 50.0
+2025-05-22 19:56:44 [AWT-EventQueue-0] ERROR o.e.gui.handlers.UserPanelHandler - Błąd przelewu. Nadawca: 123, Odbiorca: PL6735173336, Kwota: 123.0
+2025-05-22 19:56:51 [AWT-EventQueue-0] ERROR o.e.gui.handlers.UserPanelHandler - Nieprawidłowy format liczby podczas przelewu: 123,0
+java.lang.NumberFormatException: For input string: "123,0"
+	at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)
+	at java.base/jdk.internal.math.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.base/java.lang.Double.parseDouble(Double.java:971)
+	at org.example.gui.handlers.UserPanelHandler.handleTransfer(UserPanelHandler.java:85)
+	at org.example.gui.handlers.UserPanelHandler.lambda$attachHandlers$2(UserPanelHandler.java:22)
+	at java.desktop/javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972)
+	at java.desktop/javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2314)
+	at java.desktop/javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:407)
+	at java.desktop/javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262)
+	at java.desktop/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6576)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3404)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6341)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2260)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4958)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2318)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4790)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4916)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4559)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4500)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2304)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2671)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4790)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:725)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:702)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+2025-05-22 19:56:57 [AWT-EventQueue-0] ERROR o.e.gui.handlers.UserPanelHandler - Błąd przelewu. Nadawca: 123, Odbiorca: PL6735173336, Kwota: 123.0
+2025-05-22 19:57:27 [AWT-EventQueue-0] ERROR o.e.gui.handlers.UserPanelHandler - Błąd przelewu. Nadawca: 123, Odbiorca: PL6735173336, Kwota: 123.0
+2025-05-22 19:58:44 [AWT-EventQueue-0] ERROR o.e.gui.handlers.UserPanelHandler - Błąd przelewu. Nadawca: 123, Odbiorca: PL6735173336, Kwota: 123.0
+2025-05-22 19:58:55 [AWT-EventQueue-0] ERROR o.e.gui.handlers.UserPanelHandler - Błąd przelewu. Nadawca: 123, Odbiorca: PL6735173336, Kwota: 123.0
+2025-05-22 19:59:02 [AWT-EventQueue-0] ERROR o.e.gui.handlers.UserPanelHandler - Błąd przelewu. Nadawca: 123, Odbiorca: PL6735173336, Kwota: 123.0
+2025-05-22 20:13:01 [AWT-EventQueue-0] ERROR o.e.gui.handlers.UserPanelHandler - Błąd przelewu. Nadawca: 123, Odbiorca: 123, Kwota: 123.0
+2025-05-22 20:17:43 [AWT-EventQueue-0] INFO  org.example.db.DBManager - pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=
+2025-05-22 20:18:10 [AWT-EventQueue-0] INFO  org.example.db.DBManager - pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=
+2025-05-22 20:18:44 [AWT-EventQueue-0] INFO  org.example.db.DBManager - WZRHGrsBESr8wYFZ9sx0tPURuZgG2lmzyvWpwXPKz8U=
+2025-05-22 20:20:32 [AWT-EventQueue-0] ERROR o.e.gui.handlers.UserPanelHandler - Błąd przelewu. Nadawca: 123, Odbiorca: 123, Kwota: 123.0

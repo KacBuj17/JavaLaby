@@ -82,7 +82,7 @@ public class UserPanelHandler {
 
         if (receiverAccount != null && amountStr != null && subject != null) {
             try {
-                double amount = Double.parseDouble(amountStr);
+                double amount = Double.parseDouble(amountStr.replace(",", "."));
 
                 if (amount <= 0) {
                     logger.warn("Próba wykonania przelewu z nieprawidłową kwotą: {} PLN", amount);

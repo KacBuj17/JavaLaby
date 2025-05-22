@@ -400,3 +400,4 @@
 2025-05-12 15:10:51 [AWT-EventQueue-0] DEBUG o.e.gui.handlers.UserPanelHandler - Użytkownik wylogował się: 1234
 2025-05-12 15:10:52 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Kliknięto przycisk wyjścia.
 2025-05-12 15:10:53 [AWT-EventQueue-0] DEBUG o.e.g.handlers.WelcomeScreenHandler - Użytkownik potwierdził zamknięcie programu.
+2025-05-22 19:36:13 [AWT-EventQueue-0] ERROR o.e.gui.handlers.LoginPanelHandler - Nieudana próba logowania dla użytkownika: 
